@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Yes4All</title>
+  <meta name="description" content="Have a product idea, a marketplace question or a business challenge? Tell us what you have in mind.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact" data-anim="false">
+
+  <header class="site-nav" id="siteNav">
+    <div class="wrap nav-inner">
+      <div class="nav-left">
+        <a class="brand" href="index.html" aria-label="Yes4All home"><img src="assets/logo.svg" width="132" height="57" alt="Yes4All"></a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#">About Us</a>
+          <a href="#">Products <img src="assets/chevron-down.svg" width="20" height="20" alt=""></a>
+          <a href="services.html" data-nav="services">Services <img src="assets/chevron-down.svg" width="20" height="20" alt=""></a>
+          <a href="#">Career</a>
+          <a href="contact.html" data-nav="contact">Contact Us</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <a class="lang" href="#">En <img src="assets/globe.svg" width="24" height="24" alt=""></a>
+        <div class="nav-mobile">
+          <a href="contact.html">Contact</a>
+          <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="index.html" data-nav="home">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="services.html" data-nav="services">Services</a></li>
+        <li><a href="#">Career</a></li>
+        <li><a href="contact.html" data-nav="contact">Contact Us</a></li>
+        <li class="lang-row"><a class="lang" href="#">En <img src="assets/globe.svg" width="24" height="24" alt=""></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Contact introduction -->
+    <section class="contact-intro" id="intro">
+      <div class="wrap">
+        <p class="breadcrumb">Home / Contact Us</p>
+        <p class="label"><span>Contact us</span></p>
+        <h1 class="h1-page">Let’s talk about your next step.</h1>
+        <p class="lede">Have a product idea, a marketplace question or a business challenge? Tell us what you have in mind.</p>
+      </div>
+    </section>
+
+    <!-- Contact inquiry -->
+    <section class="inquiry" id="inquiry">
+      <div class="wrap">
+        <div class="direct">
+          <p class="label"><span>A conversation starts here</span></p>
+          <h2 class="h2">Prefer to talk?</h2>
+          <p class="lede">Reach the Yes4All team directly, or use the inquiry form to share more about your needs.</p>
+          <div class="channels">
+            <div class="channel"><p class="eyebrow">Email</p><a href="mailto:contact@yes4all.com">contact@yes4all.com</a></div>
+            <div class="channel"><p class="eyebrow">Hotline</p><a href="tel:02836364618">02836364618</a></div>
+          </div>
+          <div class="media"><img src="assets/contact-people.jpg" alt="Yes4All team members at work"></div>
+          <p class="img-caption">People. Products. Possibilities.</p>
+        </div>
+
+        <form class="form-card" action="#" novalidate>
+          <div class="form-intro">
+            <h2>Send a contact request</h2>
+            <p>Fields marked * are required.</p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Name *</label>
+              <input id="f-name" name="name" type="text" placeholder="Your full name" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="f-email">Email *</label>
+              <input id="f-email" name="email" type="email" placeholder="name@company.com" autocomplete="email">
+              <p class="hint">Use a valid email address so we can reply.</p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone Number *</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="Your phone number" autocomplete="tel">
+            <p class="hint">Include your country code if you are outside Vietnam.</p>
+          </div>
+          <fieldset class="services-pick" style="border:0;padding:0;margin:0;min-width:0;">
+            <legend class="fieldset-label" style="padding:0;">Services</legend>
+            <p class="hint">Select any that apply. You can also tell us in your message.</p>
+            <div class="choices">
+              <div class="choice-col">
+                <label class="check"><input type="checkbox" name="services" value="account-creation" checked><span class="box"></span><span class="txt">Account Creation</span></label>
+                <label class="check"><input type="checkbox" name="services" value="account-management"><span class="box"></span><span class="txt">Account Management / Business Strategy</span></label>
+                <label class="check"><input type="checkbox" name="services" value="compliance"><span class="box"></span><span class="txt">Compliance Consultant</span></label>
+                <label class="check"><input type="checkbox" name="services" value="trademark"><span class="box"></span><span class="txt">Trademark</span></label>
+              </div>
+              <div class="choice-col">
+                <label class="check"><input type="checkbox" name="services" value="listing-content" checked><span class="box"></span><span class="txt">Listing Images &amp; Content Consultant</span></label>
+                <label class="check"><input type="checkbox" name="services" value="market-research"><span class="box"></span><span class="txt">Market Research</span></label>
+                <label class="check"><input type="checkbox" name="services" value="patent-check"><span class="box"></span><span class="txt">Patent Check</span></label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="f-message">Message *</label>
+            <textarea id="f-message" name="message" placeholder="Tell us about your business, your goals and where you need support."></textarea>
+            <p class="hint">Please do not include passwords or sensitive account information.</p>
+          </div>
+          <div class="submission">
+            <button class="btn btn--navy" type="submit">Send your request <span class="arr">↗</span></button>
+            <p class="hint">Complete all required fields and check your email address before sending.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Our locations -->
+    <section class="locations" id="locations">
+      <div class="wrap">
+        <p class="label"><span>Where to find us</span></p>
+        <div class="location-cards">
+          <div class="location">
+            <p class="eyebrow">United States</p>
+            <h3>US distribution center</h3>
+            <p>3172 Nasa street, Unit B, Brea, CA 92821</p>
+          </div>
+          <div class="location">
+            <p class="eyebrow">Vietnam</p>
+            <h3>Vietnam Office</h3>
+            <p>127 Hong Ha Street, Ward 9, Phu Nhuan District, Ho Chi Minh City, Vietnam</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.svg" width="132" height="57" alt="Yes4All">
+          <p>THINK BIG, GET BIG FAST</p>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">Sporting Goods - Indoor</a></li>
+            <li><a href="#">Sporting Goods - Outdoor</a></li>
+            <li><a href="#">Furniture</a></li>
+            <li><a href="#">Gardening</a></li>
+            <li><a href="#">Pet</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Account Creation</a></li>
+            <li><a href="services.html">Business Strategy</a></li>
+            <li><a href="services.html">Compliance Consultant</a></li>
+            <li><a href="services.html">Listing Images &amp;<br>Content Consultant</a></li>
+            <li><a href="services.html">Market Research</a></li>
+            <li><a href="services.html">Patent Check</a></li>
+            <li><a href="services.html">Trademark</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--contact">
+          <h4>Contact Information</h4>
+          <ul>
+            <li>US distribution center: 3172 Nasa street, Unit B, Brea, CA 92821</li>
+            <li>Vietnam Office: 127 Hong Ha Street, Ward 9, Phu Nhuan District, Ho Chi Minh City, Vietnam</li>
+            <li class="hotline">Hotline: 02836364618</li>
+            <li>Email: contact@yes4all.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <p>© Yes4All, Inc. All rights reserved.</p>
+          <a href="#">Privacy Policy <img src="assets/arrow-up.svg" width="24" height="24" alt=""></a>
+        </div>
+        <div class="footer-social">
+          <p>Social Networks</p>
+          <div class="icons">
+            <a href="#" aria-label="Facebook"><img src="assets/facebook.svg" width="32" height="32" alt=""></a>
+            <a href="#" aria-label="LinkedIn"><img src="assets/linkedin.svg" width="32" height="32" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

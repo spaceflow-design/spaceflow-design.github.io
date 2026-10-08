@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bags — Delis</title>
+  <meta name="description" content="The Delis bag gallery — Dionysus styles in blue, green, beige, red and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-category">
+
+  <!-- Service announcement -->
+  <div class="announce">
+    <span class="announce__full">Complimentary shipping in major cities · Support 03 5678 0000</span>
+    <span class="announce__short">Complimentary shipping in major cities</span>
+  </div>
+
+  <!-- Main navigation -->
+  <header class="header wrap" id="header">
+    <button class="header__menu icon-btn" type="button" aria-label="Open menu" data-drawer-open>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3.334 4.166H16.666M3.334 10H16.666M3.334 15.834H16.666" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <a class="header__logo" href="index.html" aria-label="Delis — Home"><img src="assets/logo.png" alt="Delis" width="139" height="47"></a>
+    <nav class="header__nav" aria-label="Shop">
+      <a href="category.html">Bags</a>
+      <a href="#">Clothing</a>
+      <a href="#">Shoes</a>
+      <a href="#">Accessories</a>
+      <a href="#">About Delis</a>
+      <a href="#">Inspiration</a>
+    </nav>
+    <div class="header__tools">
+      <a class="icon-btn" href="#" aria-label="Search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21L16.65 16.65" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="icon-btn header__user" href="#" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 10.8333C12.301 10.8333 14.1662 8.96785 14.1662 6.66667C14.1662 4.36548 12.301 2.5 10 2.5C7.69904 2.5 5.83375 4.36548 5.83375 6.66667C5.83375 8.96785 7.69904 10.8333 10 10.8333ZM10 10.8333C11.7679 10.8333 13.4635 11.5357 14.7136 12.786C15.9637 14.0362 16.666 15.7319 16.666 17.5M10 10.8333C8.23207 10.8333 6.53654 11.5357 5.28643 12.786C4.03631 14.0362 3.334 15.7319 3.334 17.5" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a class="header__cart" href="cart.html">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13.3333 8.3332C13.3333 9.21733 12.9821 10.0652 12.357 10.6904C11.7319 11.3156 10.8841 11.6668 10 11.6668C9.11594 11.6668 8.2681 11.3156 7.64298 10.6904C7.01786 10.0652 6.66667 9.21733 6.66667 8.3332M2.58545 5.02809H17.4138M2.83333 4.5554C2.61696 4.84391 2.5 5.19483 2.5 5.55548V16.6672C2.5 17.1093 2.67559 17.5332 2.98816 17.8458C3.30072 18.1584 3.72464 18.334 4.16667 18.334H15.8333C16.2754 18.334 16.6993 18.1584 17.0118 17.8458C17.3244 17.5332 17.5 17.1093 17.5 16.6672V5.55548C17.5 5.19483 17.383 4.84391 17.1667 4.5554L15.5 2.33272C15.3448 2.12571 15.1434 1.95769 14.912 1.84197C14.6806 1.72625 14.4254 1.666 14.1667 1.666H5.83333C5.57459 1.666 5.3194 1.72625 5.08798 1.84197C4.85655 1.95769 4.65525 2.12571 4.5 2.33272L2.83333 4.5554Z" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Cart (0)</span>
+      </a>
+    </div>
+  </header>
+  <nav class="shortcuts" aria-label="Quick categories">
+    <a href="category.html">Bags</a><a href="#">Clothing</a><a href="#">Shoes</a><a href="#">Accessories</a>
+  </nav>
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__head">
+      <img src="assets/logo.png" alt="Delis">
+      <button class="drawer__close" type="button" data-drawer-close>Close</button>
+    </div>
+    <nav class="drawer__nav">
+      <a href="category.html">Bags</a><a href="#">Clothing</a><a href="#">Shoes</a><a href="#">Accessories</a><a href="#">About Delis</a><a href="#">Inspiration</a>
+    </nav>
+    <div class="drawer__meta">
+      <a href="cart.html">Cart (0)</a>
+      <span>03 5678 0000</span>
+      <span>95 Hoang Cau, Dong Da District, Hanoi</span>
+    </div>
+  </div>
+
+  <main>
+    <nav class="crumb wrap" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span>Bags</span></nav>
+
+    <!-- Collection introduction -->
+    <section class="collection wrap">
+      <div class="collection__title">
+        <p class="eyebrow" data-hero-item>THE BAG GALLERY</p>
+        <h1 data-hero-lines><span class="line"><span>Bags</span></span></h1>
+        <p data-hero-item>One accent, one point of view. Discover the Dionysus styles in the Delis collection.</p>
+      </div>
+      <p class="collection__count" data-hero-item>8 products</p>
+    </section>
+
+    <!-- Catalog layout -->
+    <section class="catalog wrap">
+      <aside class="filters" data-reveal>
+        <button class="filters__toggle" type="button" data-filters-toggle>
+          <span>Filters</span>
+          <svg viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="filters__head">
+          <img src="assets/icon-filters.svg" width="24" height="24" alt="">
+          <span>Filters</span>
+        </div>
+        <div class="filters__body">
+          <div class="filters__rule"></div>
+          <p class="filters__group">Category</p>
+          <label class="check"><input type="checkbox" checked><span class="check__box"></span><span>All bags</span></label>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>Shoulder bags</span></label>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>Mini bags</span></label>
+          <div class="filters__rule"></div>
+          <p class="filters__group">Colour</p>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>Blue</span></label>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>Green</span></label>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>Beige</span></label>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>Red</span></label>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>Black</span></label>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>Patterned</span></label>
+          <div class="filters__rule"></div>
+          <p class="filters__group">Pricing</p>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>Listed price</span></label>
+          <label class="check"><input type="checkbox"><span class="check__box"></span><span>On request</span></label>
+          <div class="filters__rule"></div>
+          <p class="filters__note">No filters applied.<br>Choose criteria to narrow your selection.</p>
+        </div>
+      </aside>
+
+      <div class="catalog__content">
+        <div class="toolbar" data-reveal>
+          <p class="toolbar__count">Showing 8 / 8 products</p>
+          <div class="sort">
+            <span>Sort: Default</span>
+            <svg viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <select aria-label="Sort products"><option>Sort: Default</option><option>Price: low to high</option><option>Price: high to low</option><option>Newest</option></select>
+          </div>
+        </div>
+
+        <div class="catalog__grid" data-stagger>
+          <a class="card" href="product.html">
+            <div class="card__media"><img src="assets/bag-blue.jpg" alt="Dionysus small shoulder bag">
+              <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <p class="card__name">Dionysus small shoulder bag</p>
+            <p class="card__variant">Blue / green</p>
+            <p class="card__price">1.250.000 VND</p>
+          </a>
+          <a class="card" href="product.html">
+            <div class="card__media"><img src="assets/bag-green.png" alt="Dionysus small bag">
+              <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <p class="card__name">Dionysus small bag</p>
+            <p class="card__variant">Green</p>
+            <p class="card__price">On request</p>
+          </a>
+          <a class="card" href="product.html">
+            <div class="card__media"><img src="assets/bag-darkgreen.png" alt="Dionysus leather super mini bag">
+              <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <p class="card__name">Dionysus leather super mini bag</p>
+            <p class="card__variant">Dark green</p>
+            <p class="card__price">On request</p>
+          </a>
+          <a class="card" href="product.html">
+            <div class="card__media"><img src="assets/bag-beige.png" alt="Dionysus small">
+              <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <p class="card__name">Dionysus small</p>
+            <p class="card__variant">Beige</p>
+            <p class="card__price">On request</p>
+          </a>
+          <a class="card" href="product.html">
+            <div class="card__media"><img src="assets/bag-red.png" alt="Dionysus small bag">
+              <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <p class="card__name">Dionysus small bag</p>
+            <p class="card__variant">Red</p>
+            <p class="card__price">On request</p>
+          </a>
+          <a class="card" href="product.html">
+            <div class="card__media"><img src="assets/bag-pattern.png" alt="Dionysus small bag">
+              <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <p class="card__name">Dionysus small bag</p>
+            <p class="card__variant">Patterned</p>
+            <p class="card__price">On request</p>
+          </a>
+          <a class="card" href="product.html">
+            <div class="card__media"><img src="assets/bag-black.png" alt="Dionysus leather super mini bag">
+              <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <p class="card__name">Dionysus leather super mini bag</p>
+            <p class="card__variant">Black</p>
+            <p class="card__price">On request</p>
+          </a>
+          <a class="card" href="product.html">
+            <div class="card__media"><img src="assets/bag-pattern-red.png" alt="Dionysus small">
+              <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <p class="card__name">Dionysus small</p>
+            <p class="card__variant">Patterned / red</p>
+            <p class="card__price">On request</p>
+          </a>
+        </div>
+
+        <div class="pagination" data-reveal>
+          <p class="pagination__note">You have viewed every product in this category.</p>
+          <div class="pager">
+            <span class="pager__count">01   -  07</span>
+            <div class="pager__arrows">
+              <button type="button" aria-label="Previous page"><img src="assets/icon-pag-left.svg" width="40" height="40" alt=""></button>
+              <button type="button" aria-label="Next page"><img src="assets/icon-pag-right.svg" width="40" height="40" alt=""></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catalog support -->
+    <section class="support wrap">
+      <div class="support__copy" data-reveal>
+        <h2>Need another angle?</h2>
+        <p>Delis can provide images and details to help you decide before ordering.</p>
+      </div>
+      <a class="btn btn--outline" href="#" data-reveal>Call 03 5678 0000 <svg viewBox="0 0 20 20" fill="none"><path d="M4.16667 10H15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html"><img src="assets/logo.png" alt="Delis"></a>
+        <p>A personal view on fashion.</p>
+        <p>03 5678 0000<br>95 Hoang Cau, Dong Da District, Hanoi</p>
+      </div>
+      <div class="footer__col footer__col--explore">
+        <p class="eyebrow eyebrow--gold">EXPLORE</p>
+        <a href="category.html">Bags</a>
+        <a href="#">Clothing &amp; shoes</a>
+        <a href="#">Watches &amp; jewellery</a>
+        <a href="#">About Delis</a>
+      </div>
+      <div class="footer__col footer__col--support">
+        <p class="eyebrow eyebrow--gold">CUSTOMER CARE</p>
+        <a href="#">Shopping guide</a>
+        <a href="#">Shipping policy</a>
+        <a href="#">Returns policy</a>
+        <a href="#">Privacy policy</a>
+      </div>
+      <div class="footer__col footer__col--social">
+        <p class="eyebrow eyebrow--gold">CONNECT WITH DELIS</p>
+        <img src="assets/instagram.svg" width="24" height="24" alt="Instagram">
+        <a href="#">delis.clothing</a>
+        <a href="#">baggallery.bydelis</a>
+        <a href="#">delis.foreverrich</a>
+      </div>
+    </div>
+    <div class="footer__rule"></div>
+    <div class="footer__bottom">
+      <span>Delis · Fashion &amp; lifestyle</span>
+      <a href="#">Privacy policy</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

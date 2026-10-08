@@ -1,0 +1,8 @@
+# internal working files, not part of the published showcase
+_TODO.md
+_brief.md
+.claude/
+softriot/_discover/
+**/NOTES.md
+Thumbs.db
+.DS_Store

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout · Happi.pie</title>
+<meta name="description" content="Happi.pie — furniture and inspiration for a space of your own.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Trirong&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-anim="off">
+<div class="announce">THE LATEST FROM HAPPI.PIE</div>
+<header class="nav">
+  <a class="nav__logo" href="index.html">HAPPI.PIE</a>
+  <nav class="nav__links" aria-label="Main navigation">
+    <a href="category.html">Shop</a>
+    <a href="#">Collections</a>
+    <a href="#">Inspiration</a>
+    <a href="#">About Happi.pie</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="nav__icons">
+    <a href="#" aria-label="Search"><img src="assets/icon-search.svg" alt="" width="18" height="18"></a>
+    <a href="#" aria-label="Wishlist"><img src="assets/icon-heart.svg" alt="" width="18" height="18"></a>
+    <a href="cart.html" aria-label="Cart"><img src="assets/icon-bag.svg" alt="" width="18" height="18"></a>
+  </div>
+</header>
+<div class="quick">
+  <button class="quick__toggle" type="button" aria-expanded="false">Categories</button>
+  <nav class="quick__cats" aria-label="Categories">
+    <a href="category.html" class="is-active">Tables</a>
+    <a href="#">Chairs</a>
+    <a href="#">Sofas</a>
+    <a href="#">Decor</a>
+  </nav>
+  <form class="quick__search" role="search">
+    <img src="assets/icon-search.svg" alt="" width="18" height="18">
+    <input type="search" placeholder="Search products, materials, styles…" aria-label="Search">
+  </form>
+  <a class="quick__cart" href="cart.html">Cart (1)</a>
+</div>
+<main>
+  <section class="checkout">
+    <p class="breadcrumb">Home  /  Cart / Checkout</p>
+    <div class="page-head">
+      <div class="page-head__lead">
+        <p class="eyebrow">COMPLETE YOUR ORDER DETAILS</p>
+        <h1 class="page-head__title">Checkout</h1>
+        <p class="page-head__sub">No account needed to fill in your details.</p>
+      </div>
+      <div class="steps"><span>✓ Cart</span><span class="is-current">Details</span><span>→ Confirmation</span></div>
+    </div>
+    <div class="checkout__row">
+      <form class="checkout__form" novalidate>
+        <div class="fieldset">
+          <h3>Contact information</h3>
+          <div class="field"><label for="co-email">Email *</label><input id="co-email" type="email" placeholder="Enter your email for order updates"></div>
+          <p class="hint">Fields marked * are required.</p>
+        </div>
+        <div class="hr"></div>
+        <div class="fieldset">
+          <h3>Delivery address</h3>
+          <div class="field-row">
+          <div class="field"><label for="co-name">Full name *</label><input id="co-name" type="text" placeholder="Recipient's name"></div>
+          <div class="field"><label for="co-phone">Phone number *</label><input id="co-phone" type="tel" placeholder="Contact number"></div>
+          </div>
+          <div class="field"><label for="co-address">Address *</label><input id="co-address" type="text" placeholder="Street number, street name, building / apartment"></div>
+          <div class="field-row">
+          <div class="field"><label for="co-city">City / Province *</label><select id="co-city"><option value="" selected disabled>Select city / province</option></select></div>
+          <div class="field"><label for="co-ward">Ward / District *</label><select id="co-ward"><option value="" selected disabled>Select ward / district</option></select></div>
+          </div>
+          <div class="field"><label for="co-note">Delivery note (optional)</label><textarea id="co-note" placeholder="Details that help us find your address"></textarea></div>
+        </div>
+        <div class="hr"></div>
+        <div class="fieldset fieldset--tight">
+          <h3>Shipping</h3>
+          <div class="infocard infocard--sand">
+            <img src="assets/icon-truck.svg" alt="" width="20" height="20">
+            <div class="infocard__body">
+              <p class="infocard__title">Shipping not yet calculated</p>
+              <p class="infocard__text">Enter your address to confirm the cost and delivery details. No default shipping fee is applied at this step.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fieldset fieldset--tight">
+          <h3>Payment method</h3>
+          <div class="infocard infocard--line">
+            <img src="assets/icon-credit-card.svg" alt="" width="20" height="20">
+            <div class="infocard__body">
+              <p class="infocard__title">Pending confirmation with Happi.pie</p>
+              <p class="infocard__text">Available methods and the final total are confirmed before you complete your order.</p>
+            </div>
+          </div>
+        </div>
+        <label class="agree"><input type="checkbox"><span>I have read the privacy notice and the ordering terms. Please review the shipping, payment and return policies before confirming.</span></label>
+      </form>
+      <aside class="checkout__aside">
+        <div class="summary">
+          <h3>Your order</h3>
+          <div class="summary__item">
+            <div class="media"><img src="assets/product-inox.jpg" alt="STAINLESS STEEL TABLE NO. 10"></div>
+            <div class="body"><p class="name">STAINLESS STEEL TABLE NO. 10</p><p class="q">Quantity: 1</p><p class="p">1.500.000 VND</p></div>
+          </div>
+      <div class="hr"></div>
+      <div class="summary__row"><span>Subtotal (1)</span><strong>1.500.000 VND</strong></div>
+      <div class="summary__row"><span>Shipping</span><span class="muted">Calculated once address is added</span></div>
+      <div class="hr"></div>
+      <p class="summary__label">ORDER TOTAL · EXCLUDING SHIPPING</p>
+      <p class="summary__total">1.500.000 VND</p>
+      <p class="summary__hint">The final total will be updated once shipping is confirmed.</p>
+          <a class="btn btn--primary btn--block" href="#">Continue to confirmation <img src="assets/icon-arrow-right.svg" alt="" width="18" height="18"></a>
+          <p class="summary__fine">No order is placed at this step. Please review your details before confirming.</p>
+        </div>
+        <div class="checklist">
+          <h3>Before you confirm</h3>
+          <ul>
+            <li><img src="assets/icon-circle.svg" alt="" width="16" height="16">Items and quantities</li>
+            <li><img src="assets/icon-circle.svg" alt="" width="16" height="16">Recipient's address</li>
+            <li><img src="assets/icon-circle.svg" alt="" width="16" height="16">Final shipping cost</li>
+            <li><img src="assets/icon-circle.svg" alt="" width="16" height="16">Payment method</li>
+          </ul>
+        </div>
+        <p class="checkout__contact">Need help? @happi.pie<br>happi.pie@gmail.com</p>
+        <a class="checkout__back" href="cart.html">← Back to cart</a>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="footer__cols">
+    <div>
+      <h4>About us</h4>
+      <div class="footer__links">
+        <a href="#">About Happi.pie</a>
+        <a href="category.html">Shop</a>
+        <a href="#">Collections</a>
+        <a href="#">Inspiration</a>
+        <a href="#">Instagram @happi.pie</a>
+        <a href="#">happi.pie@gmail.com</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div>
+      <h4>Customer care</h4>
+      <div class="footer__links">
+        <a href="#">Payment methods</a>
+        <a href="#">Account</a>
+        <a href="#">Frequently asked questions</a>
+        <a href="#">Return policy</a>
+        <a href="#">Terms &amp; conditions</a>
+        <a href="#">Delivery methods</a>
+        <a href="#">Contact support</a>
+      </div>
+    </div>
+    <div class="footer__news">
+      <h4>Keep a little inspiration</h4>
+      <form class="footer__email">
+        <input type="email" placeholder="Your email" aria-label="Your email">
+        <button type="submit" aria-label="Subscribe"><img src="assets/icon-forward-arrow.svg" alt="" width="18" height="18"></button>
+      </form>
+      <a class="footer__ig" href="#">Instagram · @happi.pie</a>
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="" width="18" height="18"></a>
+        <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="" width="18" height="18"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© HAPPI.PIE · A space of your own</span>
+    <nav><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Sitemap</a></nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

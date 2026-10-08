@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cart · Happi.pie</title>
+<meta name="description" content="Happi.pie — furniture and inspiration for a space of your own.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Trirong&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-anim="off">
+<div class="announce">THE LATEST FROM HAPPI.PIE</div>
+<header class="nav">
+  <a class="nav__logo" href="index.html">HAPPI.PIE</a>
+  <nav class="nav__links" aria-label="Main navigation">
+    <a href="category.html">Shop</a>
+    <a href="#">Collections</a>
+    <a href="#">Inspiration</a>
+    <a href="#">About Happi.pie</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="nav__icons">
+    <a href="#" aria-label="Search"><img src="assets/icon-search.svg" alt="" width="18" height="18"></a>
+    <a href="#" aria-label="Wishlist"><img src="assets/icon-heart.svg" alt="" width="18" height="18"></a>
+    <a href="cart.html" aria-label="Cart"><img src="assets/icon-bag.svg" alt="" width="18" height="18"></a>
+  </div>
+</header>
+<div class="quick">
+  <button class="quick__toggle" type="button" aria-expanded="false">Categories</button>
+  <nav class="quick__cats" aria-label="Categories">
+    <a href="category.html" class="is-active">Tables</a>
+    <a href="#">Chairs</a>
+    <a href="#">Sofas</a>
+    <a href="#">Decor</a>
+  </nav>
+  <form class="quick__search" role="search">
+    <img src="assets/icon-search.svg" alt="" width="18" height="18">
+    <input type="search" placeholder="Search products, materials, styles…" aria-label="Search">
+  </form>
+  <a class="quick__cart" href="cart.html">Cart (1)</a>
+</div>
+<main>
+  <section class="cart">
+    <p class="breadcrumb">Home  /  Cart</p>
+    <div class="page-head">
+      <div class="page-head__lead">
+        <p class="eyebrow">ONE STEP CLOSER TO YOUR CORNER</p>
+        <h1 class="page-head__title">Your cart.</h1>
+        <p class="page-head__sub">1 item · Review your selection before checkout.</p>
+      </div>
+      <a class="link-accent" href="category.html">← Continue shopping</a>
+    </div>
+    <div class="cart__row">
+      <div class="cart__items">
+        <div class="cart__labels"><span>ITEM</span><span>SUBTOTAL</span></div>
+        <div class="cart__line">
+          <a class="media" href="product.html"><img src="assets/product-inox.jpg" alt="STAINLESS STEEL TABLE NO. 10"></a>
+          <div class="cart__detail">
+            <a class="cart__name" href="product.html">STAINLESS STEEL TABLE NO. 10</a>
+            <p class="cart__unit">Unit price: 1.500.000 VND</p>
+            <div class="qty" data-qty>
+              <button type="button" data-qty-minus aria-label="Decrease"><img src="assets/icon-minus.svg" alt="" width="16" height="16"></button>
+              <span data-qty-value>1</span>
+              <button type="button" data-qty-plus aria-label="Increase"><img src="assets/icon-plus.svg" alt="" width="16" height="16"></button>
+            </div>
+            <div class="cart__actions"><a href="#">Save for later</a><a href="#">Remove</a></div>
+          </div>
+          <p class="cart__total">1.500.000 VND</p>
+        </div>
+        <div class="hr"></div>
+        <form class="field">
+          <label for="cart-note">Order note (optional)</label>
+          <textarea id="cart-note" placeholder="Anything you'd like Happi.pie to know?"></textarea>
+        </form>
+        <div class="infocard cart__help">
+          <img src="assets/icon-message-circle.svg" alt="" width="20" height="20">
+          <div class="infocard__body">
+            <p class="infocard__title">Need to confirm something before ordering?</p>
+            <p class="infocard__text">The listed dimensions have no unit specified. Message @happi.pie or email happi.pie@gmail.com to ask.</p>
+          </div>
+        </div>
+      </div>
+      <aside class="cart__aside">
+        <div class="summary">
+          <h3>Your order</h3>
+      <div class="hr"></div>
+      <div class="summary__row"><span>Subtotal (1)</span><strong>1.500.000 VND</strong></div>
+      <div class="summary__row"><span>Shipping</span><span class="muted">Calculated once address is added</span></div>
+      <div class="hr"></div>
+      <p class="summary__label">ORDER TOTAL · EXCLUDING SHIPPING</p>
+      <p class="summary__total">1.500.000 VND</p>
+      <p class="summary__hint">The final total will be updated once shipping is confirmed.</p>
+          <a class="btn btn--primary btn--block" href="checkout.html">Proceed to checkout <img src="assets/icon-arrow-right.svg" alt="" width="18" height="18"></a>
+          <p class="summary__fine">You'll review your address and order details in the next step.</p>
+        </div>
+        <p class="note">Please check delivery, payment and return information before confirming your order.</p>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="footer__cols">
+    <div>
+      <h4>About us</h4>
+      <div class="footer__links">
+        <a href="#">About Happi.pie</a>
+        <a href="category.html">Shop</a>
+        <a href="#">Collections</a>
+        <a href="#">Inspiration</a>
+        <a href="#">Instagram @happi.pie</a>
+        <a href="#">happi.pie@gmail.com</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div>
+      <h4>Customer care</h4>
+      <div class="footer__links">
+        <a href="#">Payment methods</a>
+        <a href="#">Account</a>
+        <a href="#">Frequently asked questions</a>
+        <a href="#">Return policy</a>
+        <a href="#">Terms &amp; conditions</a>
+        <a href="#">Delivery methods</a>
+        <a href="#">Contact support</a>
+      </div>
+    </div>
+    <div class="footer__news">
+      <h4>Keep a little inspiration</h4>
+      <form class="footer__email">
+        <input type="email" placeholder="Your email" aria-label="Your email">
+        <button type="submit" aria-label="Subscribe"><img src="assets/icon-forward-arrow.svg" alt="" width="18" height="18"></button>
+      </form>
+      <a class="footer__ig" href="#">Instagram · @happi.pie</a>
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="" width="18" height="18"></a>
+        <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="" width="18" height="18"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© HAPPI.PIE · A space of your own</span>
+    <nav><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Sitemap</a></nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

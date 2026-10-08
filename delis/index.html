@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delis — A signature of your own. A new chapter.</title>
+  <meta name="description" content="Delis — a personal view on fashion. Bags, accessories and inspiration curated with an editorial eye.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-home">
+
+  <!-- Service announcement -->
+  <div class="announce">
+    <span class="announce__full">Complimentary shipping in major cities · Support 03 5678 0000</span>
+    <span class="announce__short">Complimentary shipping in major cities</span>
+  </div>
+
+  <!-- Main navigation -->
+  <header class="header wrap" id="header">
+    <button class="header__menu icon-btn" type="button" aria-label="Open menu" data-drawer-open>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3.334 4.166H16.666M3.334 10H16.666M3.334 15.834H16.666" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <a class="header__logo" href="index.html" aria-label="Delis — Home"><img src="assets/logo.png" alt="Delis" width="139" height="47"></a>
+    <nav class="header__nav" aria-label="Shop">
+      <a href="category.html">Bags</a>
+      <a href="#">Clothing</a>
+      <a href="#">Shoes</a>
+      <a href="#">Accessories</a>
+      <a href="#">About Delis</a>
+      <a href="#">Inspiration</a>
+    </nav>
+    <div class="header__tools">
+      <a class="icon-btn" href="#" aria-label="Search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21L16.65 16.65" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="icon-btn header__user" href="#" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 10.8333C12.301 10.8333 14.1662 8.96785 14.1662 6.66667C14.1662 4.36548 12.301 2.5 10 2.5C7.69904 2.5 5.83375 4.36548 5.83375 6.66667C5.83375 8.96785 7.69904 10.8333 10 10.8333ZM10 10.8333C11.7679 10.8333 13.4635 11.5357 14.7136 12.786C15.9637 14.0362 16.666 15.7319 16.666 17.5M10 10.8333C8.23207 10.8333 6.53654 11.5357 5.28643 12.786C4.03631 14.0362 3.334 15.7319 3.334 17.5" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a class="header__cart" href="cart.html">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13.3333 8.3332C13.3333 9.21733 12.9821 10.0652 12.357 10.6904C11.7319 11.3156 10.8841 11.6668 10 11.6668C9.11594 11.6668 8.2681 11.3156 7.64298 10.6904C7.01786 10.0652 6.66667 9.21733 6.66667 8.3332M2.58545 5.02809H17.4138M2.83333 4.5554C2.61696 4.84391 2.5 5.19483 2.5 5.55548V16.6672C2.5 17.1093 2.67559 17.5332 2.98816 17.8458C3.30072 18.1584 3.72464 18.334 4.16667 18.334H15.8333C16.2754 18.334 16.6993 18.1584 17.0118 17.8458C17.3244 17.5332 17.5 17.1093 17.5 16.6672V5.55548C17.5 5.19483 17.383 4.84391 17.1667 4.5554L15.5 2.33272C15.3448 2.12571 15.1434 1.95769 14.912 1.84197C14.6806 1.72625 14.4254 1.666 14.1667 1.666H5.83333C5.57459 1.666 5.3194 1.72625 5.08798 1.84197C4.85655 1.95769 4.65525 2.12571 4.5 2.33272L2.83333 4.5554Z" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Cart (0)</span>
+      </a>
+    </div>
+  </header>
+  <nav class="shortcuts" aria-label="Quick categories">
+    <a href="category.html">Bags</a><a href="#">Clothing</a><a href="#">Shoes</a><a href="#">Accessories</a>
+  </nav>
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__head">
+      <img src="assets/logo.png" alt="Delis">
+      <button class="drawer__close" type="button" data-drawer-close>Close</button>
+    </div>
+    <nav class="drawer__nav">
+      <a href="category.html">Bags</a><a href="#">Clothing</a><a href="#">Shoes</a><a href="#">Accessories</a><a href="#">About Delis</a><a href="#">Inspiration</a>
+    </nav>
+    <div class="drawer__meta">
+      <a href="cart.html">Cart (0)</a>
+      <span>03 5678 0000</span>
+      <span>95 Hoang Cau, Dong Da District, Hanoi</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- Editorial hero -->
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow eyebrow--gold" data-hero-item>DELIS / NEXT CHAPTER</p>
+        <div class="hero__statement">
+          <h1 class="hero__title" data-hero-lines>
+            <span class="line"><span>A signature</span></span>
+            <span class="line"><span>of your own.</span></span>
+            <span class="line"><span>A new chapter.</span></span>
+          </h1>
+          <p class="hero__lead" data-hero-item>Discover fashion that carries your character — from one standout bag to the details that complete a look.</p>
+          <a class="btn btn--cream" href="category.html" data-hero-item>Explore the collection
+            <svg viewBox="0 0 20 20" fill="none"><path d="M4.16667 10H15.8333" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4.16667L15.8333 10L10 15.8333" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="hero__foot" data-hero-item>
+          <small>FASHION · ACCESSORIES · INSPIRATION</small>
+          <em>Delis edit</em>
+        </div>
+      </div>
+      <div class="hero__visual" data-hero-visual>
+        <img src="assets/hero.png" alt="Model wearing Delis by the sea" data-hero-img>
+        <div class="hero__caption" data-hero-caption>THE ART OF PERSONAL STYLE</div>
+      </div>
+    </section>
+
+    <!-- Category discovery -->
+    <section class="section wrap">
+      <div class="section__head" data-reveal>
+        <h2>The world of Delis</h2>
+        <p class="hint">Find the pieces that suit your style</p>
+      </div>
+      <div class="cats" data-stagger>
+        <a class="cat" href="category.html">
+          <div class="cat__media"><img src="assets/cat-bag.png" alt="Bags"></div>
+          <div class="cat__link"><span>Bags</span><span>↗</span></div>
+        </a>
+        <a class="cat" href="#">
+          <div class="cat__media"><img src="assets/cat-watch.png" alt="Watches"></div>
+          <div class="cat__link"><span>Watches</span><span>↗</span></div>
+        </a>
+        <a class="cat" href="#">
+          <div class="cat__media"><img src="assets/cat-jewelry.png" alt="Jewellery"></div>
+          <div class="cat__link"><span>Jewellery</span><span>↗</span></div>
+        </a>
+        <a class="cat" href="#">
+          <div class="cat__media"><img src="assets/cat-clothes.png" alt="Clothing"></div>
+          <div class="cat__link"><span>Clothing</span><span>↗</span></div>
+        </a>
+        <a class="cat" href="#">
+          <div class="cat__media"><img src="assets/cat-shoes.png" alt="Shoes"></div>
+          <div class="cat__link"><span>Shoes</span><span>↗</span></div>
+        </a>
+        <a class="cat" href="#">
+          <div class="cat__media"><img src="assets/cat-accessory.png" alt="Accessories"></div>
+          <div class="cat__link"><span>Accessories</span><span>↗</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Curated product selection -->
+    <section class="selection wrap">
+      <p class="eyebrow" data-reveal>THE DELIS SELECTION</p>
+      <div class="selection__head" data-reveal>
+        <h2>Highlights worth discovering</h2>
+        <a class="btn btn--outline" href="category.html">View all bags
+          <svg viewBox="0 0 20 20" fill="none"><path d="M4.16667 10H15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="card-grid" data-stagger>
+        <a class="card" href="product.html">
+          <div class="card__media"><img src="assets/bag-blue.jpg" alt="Dionysus small shoulder bag">
+            <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <p class="card__name">Dionysus small shoulder bag</p>
+          <p class="card__variant">Blue / green</p>
+          <p class="card__price">1.250.000 VND</p>
+        </a>
+        <a class="card" href="product.html">
+          <div class="card__media"><img src="assets/bag-green.png" alt="Dionysus small bag">
+            <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <p class="card__name">Dionysus small bag</p>
+          <p class="card__variant">Green</p>
+          <p class="card__price">On request</p>
+        </a>
+        <a class="card" href="product.html">
+          <div class="card__media"><img src="assets/bag-darkgreen.png" alt="Dionysus leather super mini bag">
+            <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <p class="card__name">Dionysus leather super mini bag</p>
+          <p class="card__variant">Dark green</p>
+          <p class="card__price">On request</p>
+        </a>
+        <a class="card" href="product.html">
+          <div class="card__media"><img src="assets/bag-beige.png" alt="Dionysus small">
+            <span class="card__save" aria-label="Save product"><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69365 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69365 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.90831 3.57831 8.50903 2.99871 7.05 2.99871C5.59097 2.99871 4.19169 3.57831 3.16 4.61C2.12831 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.12831 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.9379 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <p class="card__name">Dionysus small</p>
+          <p class="card__variant">Beige</p>
+          <p class="card__price">On request</p>
+        </a>
+      </div>
+      <p class="selection__note" data-reveal>Select a piece to see images, colours and ordering details. Contact Delis for styles without a listed price.</p>
+    </section>
+
+    <!-- Dionysus collection story -->
+    <section class="story wrap">
+      <div class="story__portrait" data-clip-reveal>
+        <img src="assets/portrait.png" alt="Model styling the Dionysus bag" data-parallax>
+      </div>
+      <div class="story__body" data-stagger>
+        <p class="eyebrow">IN FOCUS / DIONYSUS</p>
+        <h2>One bag.<br>Many ways to tell a story.</h2>
+        <p class="lead">A touch of green lifts a neutral ensemble. Discover Dionysus from every angle and find the pairing that suits the rhythm of your days.</p>
+        <a class="featured" href="product.html">
+          <div class="featured__media"><img src="assets/bag-blue.jpg" alt="Dionysus small shoulder bag"></div>
+          <div class="featured__info">
+            <p class="name">Dionysus small shoulder bag</p>
+            <p class="price">1.250.000 VND</p>
+            <p class="variant">Blue / green</p>
+          </div>
+        </a>
+        <a class="btn btn--solid" href="product.html">Discover Dionysus
+          <svg viewBox="0 0 20 20" fill="none"><path d="M4.16667 10H15.8333" stroke="#F7F4EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4.16667L15.8333 10L10 15.8333" stroke="#F7F4EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Color and style edit -->
+    <section class="color-edit wrap">
+      <div class="color-edit__copy" data-stagger>
+        <p class="eyebrow">STYLING NOTES</p>
+        <h2>An accent<br>of colour.</h2>
+        <p>Keep the outfit simple and let the accessory take centre stage. Green, red or quiet neutrals — each choice sets a different mood.</p>
+        <a class="btn btn--outline" href="category.html">Find your colour
+          <svg viewBox="0 0 20 20" fill="none"><path d="M4.16667 10H15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="color-edit__grid" data-stagger>
+        <a class="stage" href="product.html">
+          <div class="stage__media stage__media--green"><img src="assets/bag-green.png" alt="Dionysus small bag in green"></div>
+          <p class="stage__label">01 / A vivid green</p>
+        </a>
+        <a class="stage stage--offset" href="product.html">
+          <div class="stage__media stage__media--warm"><img src="assets/bag-red.png" alt="Dionysus small bag in red"></div>
+          <p class="stage__label">02 / A warm accent</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Brand story -->
+    <section class="band wrap">
+      <div class="band__philosophy" data-stagger>
+        <p class="eyebrow eyebrow--gold">ABOUT DELIS</p>
+        <h2>Devoted to the pursuit of beauty.</h2>
+      </div>
+      <div class="band__perspective" data-stagger>
+        <p>Drawing on the curatorial spirit of the Delis collections, we open a space for you to explore fashion from your own point of view. Beauty begins with the choice that feels like you.</p>
+        <a class="btn btn--outline-gold" href="#">The Delis story
+          <svg viewBox="0 0 20 20" fill="none"><path d="M4.16667 10H15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Service promises -->
+    <section class="promises wrap">
+      <div class="promises__head" data-reveal>
+        <h2>Peace of mind with Delis</h2>
+        <p class="eyebrow">OUR PROMISES</p>
+      </div>
+      <div class="promise-grid" data-stagger>
+        <div class="promise">
+          <img src="assets/icon-headset.svg" width="28" height="28" alt="">
+          <h3>Always here to help</h3>
+          <p>We are always on hand to answer your questions quickly and make sure you are completely satisfied.</p>
+          <a href="#">Hotline: 03 5678 0000 →</a>
+        </div>
+        <div class="promise">
+          <img src="assets/icon-truck.svg" width="28" height="28" alt="">
+          <h3>Delivery in major cities</h3>
+          <p>Every piece purchased through Delis is delivered free of charge to customers in major cities.</p>
+          <a href="#">Shipping policy →</a>
+        </div>
+        <div class="promise">
+          <img src="assets/icon-package.svg" width="28" height="28" alt="">
+          <h3>Returns, as promised</h3>
+          <p>We guarantee a 100% return on any item damaged in transit or not as described on the website.</p>
+          <a href="#">Returns policy →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journal preview -->
+    <section class="journal wrap">
+      <p class="eyebrow" data-reveal>DELIS JOURNAL</p>
+      <h2 data-reveal>Inspiration for every day.</h2>
+      <div class="journal__grid" data-stagger>
+        <article class="article">
+          <a class="article__media" href="#"><img src="assets/journal-1.jpg" alt="A neutral wardrobe"></a>
+          <p class="eyebrow">STYLE</p>
+          <h3>A neutral wardrobe, many ways to wear it</h3>
+          <p>Start with easy-to-pair tones and choose one accent of your own.</p>
+          <a class="more" href="#">Read more →</a>
+        </article>
+        <article class="article">
+          <a class="article__media" href="#"><img src="assets/journal-2.jpg" alt="The bag within the whole look"></a>
+          <p class="eyebrow">THE DELIS VIEW</p>
+          <h3>The bag within the whole look</h3>
+          <p>Notes on balancing colour and proportion when choosing accessories.</p>
+          <a class="more" href="#">Read more →</a>
+        </article>
+        <article class="article">
+          <a class="article__media" href="#"><img src="assets/journal-3.jpg" alt="What to look at before choosing a bag"></a>
+          <p class="eyebrow">SHOPPING GUIDE</p>
+          <h3>What to look at before choosing a bag</h3>
+          <p>View every angle, choose a colour and talk to Delis whenever you need more information.</p>
+          <a class="more" href="#">Read more →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Personal style consultation -->
+    <section class="consult wrap">
+      <div class="consult__copy" data-reveal>
+        <h2>Find the piece that is right for you.</h2>
+        <p>Need more images or details before ordering? Delis is happy to help.</p>
+      </div>
+      <a class="btn btn--outline" href="#" data-reveal>Contact 03 5678 0000
+        <svg viewBox="0 0 20 20" fill="none"><path d="M4.16667 10H15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html"><img src="assets/logo.png" alt="Delis"></a>
+        <p>A personal view on fashion.</p>
+        <p>03 5678 0000<br>95 Hoang Cau, Dong Da District, Hanoi</p>
+      </div>
+      <div class="footer__col footer__col--explore">
+        <p class="eyebrow eyebrow--gold">EXPLORE</p>
+        <a href="category.html">Bags</a>
+        <a href="#">Clothing &amp; shoes</a>
+        <a href="#">Watches &amp; jewellery</a>
+        <a href="#">About Delis</a>
+      </div>
+      <div class="footer__col footer__col--support">
+        <p class="eyebrow eyebrow--gold">CUSTOMER CARE</p>
+        <a href="#">Shopping guide</a>
+        <a href="#">Shipping policy</a>
+        <a href="#">Returns policy</a>
+        <a href="#">Privacy policy</a>
+      </div>
+      <div class="footer__col footer__col--social">
+        <p class="eyebrow eyebrow--gold">CONNECT WITH DELIS</p>
+        <img src="assets/instagram.svg" width="24" height="24" alt="Instagram">
+        <a href="#">delis.clothing</a>
+        <a href="#">baggallery.bydelis</a>
+        <a href="#">delis.foreverrich</a>
+      </div>
+    </div>
+    <div class="footer__rule"></div>
+    <div class="footer__bottom">
+      <span>Delis · Fashion &amp; lifestyle</span>
+      <a href="#">Privacy policy</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

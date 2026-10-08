@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your cart — Delis</title>
+  <meta name="description" content="Review your Delis selection before checkout.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-cart">
+
+  <!-- Service announcement -->
+  <div class="announce">
+    <span class="announce__full">Complimentary shipping in major cities · Support 03 5678 0000</span>
+    <span class="announce__short">Complimentary shipping in major cities</span>
+  </div>
+
+  <!-- Main navigation -->
+  <header class="header wrap" id="header">
+    <button class="header__menu icon-btn" type="button" aria-label="Open menu" data-drawer-open>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3.334 4.166H16.666M3.334 10H16.666M3.334 15.834H16.666" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <a class="header__logo" href="index.html" aria-label="Delis — Home"><img src="assets/logo.png" alt="Delis" width="139" height="47"></a>
+    <nav class="header__nav" aria-label="Shop">
+      <a href="category.html">Bags</a>
+      <a href="#">Clothing</a>
+      <a href="#">Shoes</a>
+      <a href="#">Accessories</a>
+      <a href="#">About Delis</a>
+      <a href="#">Inspiration</a>
+    </nav>
+    <div class="header__tools">
+      <a class="icon-btn" href="#" aria-label="Search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21L16.65 16.65" stroke="#1D3F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="icon-btn header__user" href="#" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 10.8333C12.301 10.8333 14.1662 8.96785 14.1662 6.66667C14.1662 4.36548 12.301 2.5 10 2.5C7.69904 2.5 5.83375 4.36548 5.83375 6.66667C5.83375 8.96785 7.69904 10.8333 10 10.8333ZM10 10.8333C11.7679 10.8333 13.4635 11.5357 14.7136 12.786C15.9637 14.0362 16.666 15.7319 16.666 17.5M10 10.8333C8.23207 10.8333 6.53654 11.5357 5.28643 12.786C4.03631 14.0362 3.334 15.7319 3.334 17.5" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a class="header__cart" href="cart.html">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13.3333 8.3332C13.3333 9.21733 12.9821 10.0652 12.357 10.6904C11.7319 11.3156 10.8841 11.6668 10 11.6668C9.11594 11.6668 8.2681 11.3156 7.64298 10.6904C7.01786 10.0652 6.66667 9.21733 6.66667 8.3332M2.58545 5.02809H17.4138M2.83333 4.5554C2.61696 4.84391 2.5 5.19483 2.5 5.55548V16.6672C2.5 17.1093 2.67559 17.5332 2.98816 17.8458C3.30072 18.1584 3.72464 18.334 4.16667 18.334H15.8333C16.2754 18.334 16.6993 18.1584 17.0118 17.8458C17.3244 17.5332 17.5 17.1093 17.5 16.6672V5.55548C17.5 5.19483 17.383 4.84391 17.1667 4.5554L15.5 2.33272C15.3448 2.12571 15.1434 1.95769 14.912 1.84197C14.6806 1.72625 14.4254 1.666 14.1667 1.666H5.83333C5.57459 1.666 5.3194 1.72625 5.08798 1.84197C4.85655 1.95769 4.65525 2.12571 4.5 2.33272L2.83333 4.5554Z" stroke="#1D3F27" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Cart (1)</span>
+      </a>
+    </div>
+  </header>
+  <nav class="shortcuts" aria-label="Quick categories">
+    <a href="category.html">Bags</a><a href="#">Clothing</a><a href="#">Shoes</a><a href="#">Accessories</a>
+  </nav>
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__head">
+      <img src="assets/logo.png" alt="Delis">
+      <button class="drawer__close" type="button" data-drawer-close>Close</button>
+    </div>
+    <nav class="drawer__nav">
+      <a href="category.html">Bags</a><a href="#">Clothing</a><a href="#">Shoes</a><a href="#">Accessories</a><a href="#">About Delis</a><a href="#">Inspiration</a>
+    </nav>
+    <div class="drawer__meta">
+      <a href="cart.html">Cart (1)</a>
+      <span>03 5678 0000</span>
+      <span>95 Hoang Cau, Dong Da District, Hanoi</span>
+    </div>
+  </div>
+
+  <main>
+    <nav class="crumb wrap" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span>Cart</span></nav>
+
+    <!-- Cart heading -->
+    <section class="page-head wrap">
+      <div class="page-head__title">
+        <p class="eyebrow">YOUR SELECTION</p>
+        <h1>Your cart</h1>
+        <p>1 item · Review your selection before checkout.</p>
+      </div>
+      <p class="page-head__steps">Cart  /  Details &amp; payment</p>
+    </section>
+
+    <!-- Cart content -->
+    <section class="cart wrap">
+      <div class="cart__items">
+        <div class="rule"></div>
+        <div class="cart__thead"><span>PRODUCT</span><span>SUBTOTAL</span></div>
+        <div class="cart-item">
+          <a class="cart-item__media" href="product.html"><img src="assets/bag-blue.jpg" alt="Dionysus small shoulder bag"></a>
+          <div class="cart-item__body">
+            <p class="cart-item__name">Dionysus small shoulder bag</p>
+            <p class="cart-item__variant">Colour: Blue / green</p>
+            <p class="cart-item__unit">Unit price: 1.250.000 VND</p>
+            <div class="cart-item__controls">
+              <div class="qty" data-qty>
+                <button type="button" aria-label="Decrease" data-qty-minus>−</button>
+                <output>1</output>
+                <button type="button" aria-label="Increase" data-qty-plus>+</button>
+              </div>
+              <a class="remove" href="#">Remove</a>
+              <a class="recolor" href="product.html">Change colour</a>
+            </div>
+            <p class="cart-item__total">Subtotal: 1.250.000 VND</p>
+          </div>
+        </div>
+        <div class="rule"></div>
+        <a class="btn btn--outline" href="category.html">Continue shopping <svg viewBox="0 0 20 20" fill="none"><path d="M4.16667 10H15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="cart__note">
+          <b>Shop with clarity</b>
+          <p>Complimentary shipping in major cities. Delivery fees and the final total are determined by address in the next step.</p>
+          <p>100% returns on items damaged in transit or not as described on the website.</p>
+        </div>
+      </div>
+
+      <aside class="summary">
+        <h2>Your order</h2>
+        <div class="rule"></div>
+        <div class="summary__row"><span>Subtotal (1 item)</span><span>1.250.000 VND</span></div>
+        <div class="summary__row"><span>Shipping</span><span class="pending">Pending address</span></div>
+        <p class="summary__fine">Free in major cities. Delivery fees to other areas are determined by the shipping address.</p>
+        <div class="rule"></div>
+        <h3>Total: to be confirmed</h3>
+        <p class="summary__fine">Excludes shipping. The total will appear once an address is selected.</p>
+        <a class="btn btn--solid btn--block" href="checkout.html">Proceed to checkout <svg viewBox="0 0 20 20" fill="none"><path d="M4.16667 10H15.8333" stroke="#F7F4EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4.16667L15.8333 10L10 15.8333" stroke="#F7F4EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <p class="summary__fine">Need help? 03 5678 0000</p>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html"><img src="assets/logo.png" alt="Delis"></a>
+        <p>A personal view on fashion.</p>
+        <p>03 5678 0000<br>95 Hoang Cau, Dong Da District, Hanoi</p>
+      </div>
+      <div class="footer__col footer__col--explore">
+        <p class="eyebrow eyebrow--gold">EXPLORE</p>
+        <a href="category.html">Bags</a>
+        <a href="#">Clothing &amp; shoes</a>
+        <a href="#">Watches &amp; jewellery</a>
+        <a href="#">About Delis</a>
+      </div>
+      <div class="footer__col footer__col--support">
+        <p class="eyebrow eyebrow--gold">CUSTOMER CARE</p>
+        <a href="#">Shopping guide</a>
+        <a href="#">Shipping policy</a>
+        <a href="#">Returns policy</a>
+        <a href="#">Privacy policy</a>
+      </div>
+      <div class="footer__col footer__col--social">
+        <p class="eyebrow eyebrow--gold">CONNECT WITH DELIS</p>
+        <img src="assets/instagram.svg" width="24" height="24" alt="Instagram">
+        <a href="#">delis.clothing</a>
+        <a href="#">baggallery.bydelis</a>
+        <a href="#">delis.foreverrich</a>
+      </div>
+    </div>
+    <div class="footer__rule"></div>
+    <div class="footer__bottom">
+      <span>Delis · Fashion &amp; lifestyle</span>
+      <a href="#">Privacy policy</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

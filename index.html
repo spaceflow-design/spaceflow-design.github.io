@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spaceflow Design · Window display</title>
+<meta name="description" content="Websites designed and built by Spaceflow Design, grouped by industry: commerce, fashion, fitness, real estate, fintech, interiors. Each one opens as a live, scrollable preview.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080808;--text:#FAFAFA;--muted:#8A8A8A;--line:#262626;--accent:#0EA5E9;
+  --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --gut:clamp(20px,5vw,80px);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --win-h:78vh;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1440px;margin:0 auto;padding-inline:var(--gut)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+
+/* ---- field: faint dots everywhere, blue "+" revealed around the pointer ---- */
+@property --mr{syntax:"<length>";inherits:true;initial-value:240px}
+@property --fo{syntax:"<number>";inherits:true;initial-value:1}
+.field{position:fixed;inset:0;z-index:0;pointer-events:none;--mr:300px;--fo:1;transition:--mr .9s var(--ease),--fo .7s var(--ease)}
+.field>div{position:absolute;inset:0}
+.field-dim{background-image:radial-gradient(circle,#2a2a2a 1px,transparent 1.6px);background-size:28px 28px;background-position:14px 14px}
+.field-lit{opacity:var(--fo);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M14 9v10M9 14h10' stroke='%230EA5E9' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-size:28px 28px;
+  -webkit-mask:radial-gradient(var(--mr) circle at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.7) 30%,rgba(0,0,0,.25) 60%,transparent 80%);mask:radial-gradient(var(--mr) circle at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.7) 30%,rgba(0,0,0,.25) 60%,transparent 80%);
+  animation:breathe 5s ease-in-out infinite}
+.field-glow{opacity:var(--fo);background:
+  radial-gradient(460px circle at var(--mx,-999px) var(--my,-999px),rgba(14,165,233,.16),transparent 70%),
+  radial-gradient(300px circle at calc(var(--mx,-999px) + 110px) calc(var(--my,-999px) - 70px),rgba(3,105,161,.14),transparent 70%);
+  animation:drift 9s ease-in-out infinite;filter:blur(3px)}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
+@keyframes drift{0%,100%{transform:translate(0,0)}33%{transform:translate(-14px,10px)}66%{transform:translate(12px,-8px)}}
+.field.is-down{--mr:520px}
+/* over anything the visitor reads or picks, the field steps back */
+.field.is-quiet{--mr:200px;--fo:.45}
+main,footer,.bar{position:relative;z-index:1}
+.scope label,.bands-wrap,.estimate,.menu-list{background-color:var(--bg)}
+@media (hover:none){.field-lit,.field-glow{display:none}}
+@media (prefers-reduced-motion:reduce){.field-lit,.field-glow{animation:none}}
+
+/* ---- bar ---- */
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:52px}
+.mark{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.logo img{display:block;width:22px;height:22px}
+.wordmark{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--text)}
+.wordmark i{font-style:normal;color:var(--accent)}
+.bar nav{display:flex;align-items:center;gap:20px}
+.nav-link,.menu-btn{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 0;white-space:nowrap;transition:color .25s var(--ease)}
+.nav-link:hover,.menu-btn:hover,.menu-btn[aria-expanded="true"]{color:var(--text)}
+.menu{position:relative}
+.menu-btn b{font-weight:400;color:var(--text)}
+.caret{display:inline-block;width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin-left:8px;vertical-align:3px;transition:transform .25s var(--ease)}
+.menu-btn[aria-expanded="true"] .caret{transform:rotate(225deg);vertical-align:-1px}
+.menu-list{position:absolute;right:0;top:calc(100% + 10px);min-width:250px;background:var(--bg);border:1px solid var(--line);border-radius:2px;list-style:none;padding:6px 0;z-index:30}
+.menu-list[hidden]{display:none}
+.menu-list a{display:flex;align-items:center;gap:12px;padding:9px 14px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);transition:color .2s,background .2s}
+.menu-list a span{color:#4a4a4a;transition:color .2s}
+.menu-list a em{margin-left:auto;font-style:normal;color:#4a4a4a}
+.menu-list a:hover,.menu-list a.is-active{color:var(--text);background:#111}
+.menu-list a.is-active span{color:var(--accent)}
+
+/* ---- hero ---- */
+.hero{padding:clamp(48px,8vw,96px) 0 clamp(40px,6vw,72px)}
+.hero .kicker{color:var(--muted);margin-bottom:24px}
+.hero h1{font-size:clamp(36px,6.4vw,96px);font-weight:300;line-height:1.04;letter-spacing:-.025em;max-width:16ch}
+.hero .sub{margin-top:28px;max-width:58ch;color:var(--muted);font-size:clamp(16px,1.4vw,20px);line-height:1.5}
+.hero .index{margin-top:clamp(32px,5vw,56px);display:flex;flex-wrap:wrap;gap:10px 36px;list-style:none}
+.hero .index a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);transition:color .25s var(--ease)}
+.hero .index a span{color:var(--text);margin-right:6px}
+.hero .index a:hover{color:var(--text)}
+.hero .key{margin-top:18px;color:var(--muted);font-size:11px}
+.hero .key b{color:var(--text);font-weight:400}
+
+/* ---- industry block ---- */
+.block{border-top:1px solid var(--line);padding:clamp(48px,7vw,104px) 0 clamp(56px,8vw,120px);scroll-margin-top:52px}
+.block-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+.sign .idx{color:var(--muted);margin-bottom:12px}
+.sign h2{font-size:clamp(40px,5.4vw,88px);font-weight:300;line-height:1;letter-spacing:-.03em;white-space:nowrap}
+.sign h2.fit{font-size:var(--fit)}
+.sign .desc{margin-top:20px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.04em;line-height:1.6;max-width:30ch}
+#pricing .sign .desc{font-family:var(--sans);font-size:17px;letter-spacing:0;color:var(--text);max-width:24ch;line-height:1.4}
+.sign .count{margin-top:6px;color:var(--text);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:24px;align-content:start}
+
+/* ---- window ---- */
+.proj{--dur:50s;min-width:0}
+/* the window is a size container so the walk can use its own height (cqh) */
+.win{position:relative;display:block;width:100%;aspect-ratio:3/5;max-height:var(--win-h);container-type:size;overflow:hidden;border:1px solid var(--line);border-radius:2px;background:#0d0d0d;cursor:pointer;text-align:left;padding:0}
+.win img{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none;will-change:transform;animation:walk var(--dur) linear infinite alternate}
+@keyframes walk{to{transform:translateY(calc(-100% + 100cqh))}}
+.js .win:not(.live) img{animation-play-state:paused}
+.win:hover img,.win:focus-visible img{animation-play-state:paused}
+.win .step{position:absolute;left:0;bottom:0;background:var(--bg);color:var(--text);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border-top:1px solid var(--line);border-right:1px solid var(--line);opacity:0;transition:opacity .25s var(--ease)}
+.win:hover .step,.win:focus-visible .step{opacity:1}
+.win:hover{border-color:#3d3d3d}
+.win.empty{cursor:default;display:grid;place-items:center;background:#0b0b0b url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2714%27%3E%3Cpath d=%27M-2 2l4-4M0 14L14 0M12 16l4-4%27 stroke=%27%23262626%27 stroke-width=%271%27 fill=%27none%27/%3E%3C/svg%3E")}
+.win.empty span{background:var(--bg);padding:8px 14px;border:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.win.empty:hover{border-color:var(--line)}
+
+.caption{margin-top:20px}
+.caption h3{font-size:clamp(20px,1.8vw,24px);font-weight:500;letter-spacing:-.01em;line-height:1.2}
+.caption h3 a{display:inline-block;padding:2px 0;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px;text-decoration-thickness:1px;transition:text-decoration-color .2s}
+.caption h3 a:hover,.caption h3 a:focus-visible{text-decoration-color:var(--text)}
+.caption h3 a span{display:inline-block;margin-left:.35em;color:var(--muted);transition:transform .25s var(--ease),color .2s}
+.caption h3 a:hover span{transform:translateX(4px);color:var(--text)}
+.caption .what{margin-top:6px;color:var(--muted);font-size:15px;max-width:42ch}
+.pages{margin-top:16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;line-height:1.9}
+.pages a,.pages i{display:inline-block}
+.pages a{color:var(--text);transition:color .2s}
+.pages a.static{color:var(--muted)}
+.pages a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--muted)}
+.pages a.static:hover{color:var(--text)}
+.pages i{font-style:normal;color:#4a4a4a;padding:0 .7em}
+.tab{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);transition:color .2s}
+.tab:hover{color:var(--text)}
+.note{margin-top:8px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted)}
+
+/* ---- pricing ---- */
+.price{display:grid;gap:28px;max-width:780px;min-width:0}
+.scope{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative}
+.scope label{display:block;border:1px solid var(--line);border-radius:2px;padding:14px 14px 12px;cursor:pointer;transition:border-color .2s,background .2s}
+.scope label:hover{border-color:#3d3d3d}
+.scope label:has(input:checked){border-color:var(--accent);background:#0b1117}
+.scope label:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+.scope input{position:absolute;opacity:0;pointer-events:none}
+.scope b{display:block;font-weight:500;font-size:15px}
+.scope small{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.45}
+.scale label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.scale input{display:block;width:100%;margin:16px 0 10px;accent-color:var(--accent);cursor:pointer}
+.scale-ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.scale-ticks span:nth-child(2){text-align:center}
+.scale-ticks span:last-child{text-align:right}
+.estimate{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.est-label{color:var(--muted)}
+.est{font-size:clamp(34px,4.6vw,64px);font-weight:300;letter-spacing:-.02em;line-height:1.1;margin-top:6px;font-variant-numeric:tabular-nums}
+.est i{font-style:normal;color:var(--muted);font-size:.42em;margin:0 .35em}
+.est-note{margin-top:8px;color:var(--muted)}
+.bands{width:100%;border-collapse:collapse;font-size:13px}
+.bands th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line)}
+.bands td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top;white-space:nowrap}
+.bands td:first-child{color:var(--muted);white-space:normal}
+.bands tr.is-on td{color:var(--text)}
+.bands tr.is-on td:first-child{color:var(--accent)}
+.src{color:#6a6a6a;font-size:11px;line-height:1.7;letter-spacing:.02em}
+.btn-quote{justify-self:start;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:12px 16px;border:1px solid var(--text);border-radius:2px;color:var(--text);transition:background .2s,color .2s}
+.btn-quote:hover{background:var(--text);color:var(--bg)}
+.bands-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;min-width:0}
+@media (max-width:760px){.scope{grid-template-columns:1fr}.bands{font-size:12px}}
+
+/* ---- footer ---- */
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:36px 48px;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+footer b{color:var(--text);font-weight:400}
+
+/* ---- viewer ---- */
+.viewer{position:fixed;inset:0;z-index:50;background:#0a0a0a;display:none;flex-direction:column}
+.viewer.is-open{display:flex}
+.viewer-bar{display:flex;align-items:center;gap:16px;padding:10px var(--gut);border-bottom:1px solid var(--line);background:var(--bg)}
+.vbtn{display:inline-flex;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:9px 13px;border:1px solid var(--line);border-radius:2px;white-space:nowrap;transition:border-color .2s}
+.vbtn:hover{border-color:#3d3d3d}
+.viewer-bar .title{font-size:14px;color:var(--muted);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viewer-bar .title strong{color:var(--text);font-weight:500}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:2px}
+.seg button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 12px;transition:color .25s var(--ease),background .25s}
+.seg button[aria-pressed="true"]{color:var(--text);background:#1a1a1a}
+.viewer-stage{flex:1;overflow:auto;display:grid;place-items:start center;padding:24px}
+.viewer-stage iframe{background:#fff;border:1px solid var(--line);border-radius:2px;display:block;height:calc(100vh - 100px);transition:width .45s var(--ease)}
+.viewer-stage[data-device="desktop"] iframe{width:min(1440px,100%)}
+.viewer-stage[data-device="mobile"] iframe{width:390px;height:844px;max-height:calc(100vh - 100px)}
+.viewer-stage .shot{position:relative;background:#fff;border:1px solid var(--line);border-radius:2px;height:calc(100vh - 100px);overflow:auto;transition:width .45s var(--ease)}
+.viewer-stage[data-device="desktop"] .shot{width:min(1440px,100%)}
+.viewer-stage[data-device="mobile"] .shot{width:390px;height:844px;max-height:calc(100vh - 100px)}
+.viewer-stage .shot img{display:block;width:100%;height:auto}
+.viewer-stage .shot-note{position:sticky;bottom:0;margin:0;padding:8px 12px;background:rgba(8,8,8,.85);color:var(--muted);font-size:11px}
+.viewer-stage .shot[hidden]{display:none}
+.viewer.is-shot iframe{display:none}
+
+@media (min-width:760px){
+  .block-grid{grid-template-columns:minmax(220px,30%) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+  .sign{position:sticky;top:96px}
+}
+@media (max-width:759px){
+  .wordmark{display:none}
+}
+@media (max-width:640px){
+  .hero .index{flex-direction:column;gap:12px}
+  .viewer-stage{padding:12px}
+  .viewer-stage[data-device="mobile"] iframe{width:100%;height:calc(100vh - 80px);max-height:none}
+  .viewer-bar .title{display:none}
+  .viewer-bar{gap:10px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+  .win img{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="field" aria-hidden="true"><div class="field-dim"></div><div class="field-lit"></div></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Spaceflow Design, top of page"><span class="logo"><img src="_shared/logo-mark.svg" alt="" width="22" height="22"></span><span class="wordmark">spaceflow<i>.design</i></span></a>
+    <nav aria-label="Site">
+      <div class="menu" id="menu">
+        <button class="menu-btn" aria-expanded="false" aria-controls="menu-list">Projects <span class="caret" aria-hidden="true"></span></button>
+        <ul class="menu-list" id="menu-list" hidden>
+          <li><a href="#commerce"><span>01</span>Commerce<em>4</em></a></li>
+          <li><a href="#fashion"><span>02</span>Fashion<em>1</em></a></li>
+          <li><a href="#fitness"><span>03</span>Fitness app<em>1</em></a></li>
+          <li><a href="#real-estate"><span>04</span>Real estate<em>2</em></a></li>
+          <li><a href="#fintech"><span>05</span>Fintech<em>1</em></a></li>
+          <li><a href="#interiors"><span>06</span>Interiors<em>1</em></a></li>
+        </ul>
+      </div>
+      <a class="nav-link" href="#pricing">Pricing</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker mono">Selected work / 6 industries</p>
+    <h1>Websites for brands that sell, designed and built end to end.</h1>
+    <p class="sub">Every window below is real client work. Some of these sites have been live for years; others are confidential, so only a preview can be shown here, and we appreciate your understanding. Click a window to step in.</p>
+    <ul class="index" aria-label="Industries">
+      <li><a href="#commerce"><span>01</span>Commerce</a></li>
+      <li><a href="#fashion"><span>02</span>Fashion</a></li>
+      <li><a href="#fitness"><span>03</span>Fitness app</a></li>
+      <li><a href="#real-estate"><span>04</span>Real estate</a></li>
+      <li><a href="#fintech"><span>05</span>Fintech</a></li>
+      <li><a href="#interiors"><span>06</span>Interiors</a></li>
+      <li><a href="#pricing"><span>07</span>Pricing</a></li>
+    </ul>
+    <p class="key mono"><b>Bright</b> pages are animated. Muted pages are static.</p>
+  </div>
+</section>
+
+<section class="block" id="commerce" aria-labelledby="h-commerce">
+  <div class="wrap block-grid">
+    <div class="sign">
+      <p class="idx mono">01 / Commerce</p>
+      <h2 id="h-commerce">E-commerce</h2>
+      <p class="desc">B2B and D2C storefronts</p>
+      <p class="count">4 builds</p>
+    </div>
+    <div class="row">
+
+      <article class="proj" style="--dur:52s">
+        <button class="win" data-open="yes4all/index.html" data-title="Yes4All · Home" aria-label="Step into Yes4All">
+          <img src="_shared/thumbs/yes4all.jpg" alt="" loading="lazy">
+          <span class="step">Step in &rarr;</span>
+        </button>
+        <div class="caption">
+          <h3><a href="yes4all/index.html" data-open="yes4all/index.html" data-title="Yes4All · Home">Yes4All<span aria-hidden="true">&rarr;</span></a></h3>
+          <p class="what">B2B e-commerce enabler: trading, product creation, marketplace services.</p>
+          <p class="pages">
+            <a href="yes4all/index.html" data-open="yes4all/index.html" data-title="Yes4All · Home">Home</a><i>&middot;</i><a href="yes4all/services.html" data-open="yes4all/services.html" data-title="Yes4All · Services">Services</a><i>&middot;</i><a class="static" href="yes4all/contact.html" data-open="yes4all/contact.html" data-title="Yes4All · Contact">Contact</a>
+          </p>
+          <a class="tab" href="yes4all/index.html" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+        </div>
+      </article>
+
+      <article class="proj" style="--dur:60s">
+        <button class="win" data-open="happipie/index.html" data-title="Happi.pie · Home" aria-label="Step into Happi.pie">
+          <img src="_shared/thumbs/happipie.jpg" alt="" loading="lazy">
+          <span class="step">Step in &rarr;</span>
+        </button>
+        <div class="caption">
+          <h3><a href="happipie/index.html" data-open="happipie/index.html" data-title="Happi.pie · Home">Happi.pie<span aria-hidden="true">&rarr;</span></a></h3>
+          <p class="what">Direct-to-consumer furniture store, from homepage to checkout.</p>
+          <p class="pages">
+            <a href="happipie/index.html" data-open="happipie/index.html" data-title="Happi.pie · Home">Home</a><i>&middot;</i><a href="happipie/category.html" data-open="happipie/category.html" data-title="Happi.pie · Category">Category</a><i>&middot;</i><a href="happipie/product.html" data-open="happipie/product.html" data-title="Happi.pie · Product">Product</a><i>&middot;</i><a class="static" href="happipie/cart.html" data-open="happipie/cart.html" data-title="Happi.pie · Cart">Cart</a><i>&middot;</i><a class="static" href="happipie/checkout.html" data-open="happipie/checkout.html" data-title="Happi.pie · Checkout">Checkout</a>
+          </p>
+          <a class="tab" href="happipie/index.html" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+        </div>
+      </article>
+
+      <article class="proj" style="--dur:56s">
+        <button class="win" data-open="https://curse-snout-06869884.figma.site/" data-title="Quiet Form · Live site" aria-label="Step into Quiet Form">
+          <img src="_shared/thumbs/quiet-form.jpg" alt="" loading="lazy">
+          <span class="step">Step in &rarr;</span>
+        </button>
+        <div class="caption">
+          <h3><a href="https://curse-snout-06869884.figma.site/" data-open="https://curse-snout-06869884.figma.site/" data-title="Quiet Form · Live site">Quiet Form<span aria-hidden="true">&rarr;</span></a></h3>
+          <p class="what">Furniture store built with Figma Make; live site, from collection to journal.</p>
+          <p class="pages">
+            <a href="https://curse-snout-06869884.figma.site/" data-open="https://curse-snout-06869884.figma.site/" data-title="Quiet Form · Live site">Live site</a>
+          </p>
+          <a class="tab" href="https://curse-snout-06869884.figma.site/" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+          <p class="note">Built in Figma Make.</p>
+        </div>
+      </article>
+
+      <article class="proj" style="--dur:50s">
+        <button class="win" data-open="softriot/index.html" data-title="Soft Riot · Home" aria-label="Step into Soft Riot">
+          <img src="_shared/thumbs/softriot.jpg" alt="" loading="lazy">
+          <span class="step">Step in &rarr;</span>
+        </button>
+        <div class="caption">
+          <h3><a href="softriot/index.html" data-open="softriot/index.html" data-title="Soft Riot · Home">Soft Riot<span aria-hidden="true">&rarr;</span></a></h3>
+          <p class="what">Concept store for a knitwear and corsetry label: the homepage is a clothes rail you scroll along.</p>
+          <p class="pages">
+            <a href="softriot/index.html" data-open="softriot/index.html" data-title="Soft Riot · Home">Home</a><i>&middot;</i><a href="softriot/collection.html" data-open="softriot/collection.html" data-title="Soft Riot · Collection">Collection</a><i>&middot;</i><a href="softriot/product.html" data-open="softriot/product.html" data-title="Soft Riot · Product">Product</a>
+          </p>
+          <a class="tab" href="softriot/index.html" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+          <p class="note">Studio concept, fictional label.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="fashion" aria-labelledby="h-fashion">
+  <div class="wrap block-grid">
+    <div class="sign">
+      <p class="idx mono">02 / Fashion</p>
+      <h2 id="h-fashion">Fashion</h2>
+      <p class="desc">Luxury retail</p>
+      <p class="count">1 build</p>
+    </div>
+    <div class="row">
+
+      <article class="proj" style="--dur:45s">
+        <button class="win" data-open="delis/index.html" data-title="Delis · Home" aria-label="Step into Delis">
+          <img src="_shared/thumbs/delis.jpg" alt="" loading="lazy">
+          <span class="step">Step in &rarr;</span>
+        </button>
+        <div class="caption">
+          <h3><a href="delis/index.html" data-open="delis/index.html" data-title="Delis · Home">Delis<span aria-hidden="true">&rarr;</span></a></h3>
+          <p class="what">Luxury handbag boutique with an editorial homepage and full purchase flow.</p>
+          <p class="pages">
+            <a href="delis/index.html" data-open="delis/index.html" data-title="Delis · Home">Home</a><i>&middot;</i><a href="delis/category.html" data-open="delis/category.html" data-title="Delis · Collection">Collection</a><i>&middot;</i><a href="delis/product.html" data-open="delis/product.html" data-title="Delis · Product">Product</a><i>&middot;</i><a class="static" href="delis/cart.html" data-open="delis/cart.html" data-title="Delis · Cart">Cart</a><i>&middot;</i><a class="static" href="delis/checkout.html" data-open="delis/checkout.html" data-title="Delis · Checkout">Checkout</a>
+          </p>
+          <a class="tab" href="delis/index.html" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="fitness" aria-labelledby="h-fitness">
+  <div class="wrap block-grid">
+    <div class="sign">
+      <p class="idx mono">03 / Fitness</p>
+      <h2 id="h-fitness">Fitness app</h2>
+      <p class="desc">Studio site around a booking app</p>
+      <p class="count">1 build</p>
+    </div>
+    <div class="row">
+
+      <article class="proj" style="--dur:58s">
+        <button class="win" data-open="heat-society/index.html" data-title="Heat Society · Home" aria-label="Step into Heat Society">
+          <img src="_shared/thumbs/heat-society.jpg" alt="" loading="lazy">
+          <span class="step">Step in &rarr;</span>
+        </button>
+        <div class="caption">
+          <h3><a href="heat-society/index.html" data-open="heat-society/index.html" data-title="Heat Society · Home">Heat Society<span aria-hidden="true">&rarr;</span></a></h3>
+          <p class="what">Infrared hot-pilates studio in Hanoi; every page leads to the booking app.</p>
+          <p class="pages">
+            <a href="heat-society/index.html" data-open="heat-society/index.html" data-title="Heat Society · Home">Home</a><i>&middot;</i><a href="heat-society/about/index.html" data-open="heat-society/about/index.html" data-title="Heat Society · Studio">Studio</a><i>&middot;</i><a href="heat-society/packages/index.html" data-open="heat-society/packages/index.html" data-title="Heat Society · Packages">Packages</a><i>&middot;</i><a href="heat-society/schedule/index.html" data-open="heat-society/schedule/index.html" data-title="Heat Society · Schedule">Schedule</a><i>&middot;</i><a href="heat-society/location/index.html" data-open="heat-society/location/index.html" data-title="Heat Society · Location">Location</a>
+          </p>
+          <a class="tab" href="heat-society/index.html" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+          <p class="note">Next.js build, exported for preview.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="real-estate" aria-labelledby="h-re">
+  <div class="wrap block-grid">
+    <div class="sign">
+      <p class="idx mono">04 / Real estate</p>
+      <h2 id="h-re">Real estate</h2>
+      <p class="desc">Residential towers and landing pages</p>
+      <p class="count">2 builds</p>
+    </div>
+    <div class="row">
+
+      <article class="proj" style="--dur:54s">
+        <button class="win" data-open="grand-era/index.html" data-title="Grand Era · Home" aria-label="Step into Grand Era">
+          <img src="_shared/thumbs/grand-era.jpg" alt="" loading="lazy">
+          <span class="step">Step in &rarr;</span>
+        </button>
+        <div class="caption">
+          <h3><a href="grand-era/index.html" data-open="grand-era/index.html" data-title="Grand Era · Home">Grand Era<span aria-hidden="true">&rarr;</span></a></h3>
+          <p class="what">Residential tower at 9 Phạm Hùng, Hanoi: residences, amenities, connectivity, contact.</p>
+          <p class="pages">
+            <a href="grand-era/index.html" data-open="grand-era/index.html" data-title="Grand Era · Home">Home</a><i>&middot;</i><a href="grand-era/Grand_Era_02_Residences.html" data-open="grand-era/Grand_Era_02_Residences.html" data-title="Grand Era · Residences">Residences</a><i>&middot;</i><a href="grand-era/Grand_Era_03_Amenities.html" data-open="grand-era/Grand_Era_03_Amenities.html" data-title="Grand Era · Amenities">Amenities</a><i>&middot;</i><a href="grand-era/Grand_Era_04_Connect.html" data-open="grand-era/Grand_Era_04_Connect.html" data-title="Grand Era · Connect">Connect</a><i>&middot;</i><a class="static" href="grand-era/Grand_Era_05_Contact.html" data-open="grand-era/Grand_Era_05_Contact.html" data-title="Grand Era · Contact">Contact</a>
+          </p>
+          <a class="tab" href="grand-era/index.html" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+        </div>
+      </article>
+
+      <article class="proj" style="--dur:57s">
+        <button class="win" data-open="https://spaceflow-design.github.io/asp-land/option-1/index.html" data-title="ASP Land · Home" aria-label="Step into ASP Land">
+          <img src="_shared/thumbs/asp.jpg" alt="" loading="lazy">
+          <span class="step">Step in &rarr;</span>
+        </button>
+        <div class="caption">
+          <h3><a href="https://spaceflow-design.github.io/asp-land/option-1/index.html" data-open="https://spaceflow-design.github.io/asp-land/option-1/index.html" data-title="ASP Land · Home">ASP Land<span aria-hidden="true">&rarr;</span></a></h3>
+          <p class="what">Industrial-park developer in Quảng Ninh: three design directions, one built out as a full ten-page site.</p>
+          <p class="pages">
+            <a href="https://spaceflow-design.github.io/asp-land/option-1/index.html" data-open="https://spaceflow-design.github.io/asp-land/option-1/index.html" data-title="ASP Land · Home">Home</a><i>&middot;</i><a href="https://spaceflow-design.github.io/asp-land/option-1/portfolio-industrial.html" data-open="https://spaceflow-design.github.io/asp-land/option-1/portfolio-industrial.html" data-title="ASP Land · Industrial parks">Industrial parks</a><i>&middot;</i><a href="https://spaceflow-design.github.io/asp-land/option-1/about.html" data-open="https://spaceflow-design.github.io/asp-land/option-1/about.html" data-title="ASP Land · Our story">Our story</a><i>&middot;</i><a href="https://spaceflow-design.github.io/asp-land/" data-open="https://spaceflow-design.github.io/asp-land/" data-title="ASP Land · Three directions">Three directions</a>
+          </p>
+          <a class="tab" href="https://spaceflow-design.github.io/asp-land/" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="fintech" aria-labelledby="h-fintech">
+  <div class="wrap block-grid">
+    <div class="sign">
+      <p class="idx mono">05 / Fintech</p>
+      <h2 id="h-fintech">Fintech</h2>
+      <p class="desc">Earned-wage access</p>
+      <p class="count">1 build</p>
+    </div>
+    <div class="row">
+
+      <article class="proj" style="--dur:62s">
+        <a class="win" href="https://vuiapp.vn/en/" target="_blank" rel="noopener" aria-label="Open Vui App in a new tab">
+          <img src="_shared/thumbs/vui.jpg" alt="" loading="lazy">
+          <span class="step">Open site &#8599;</span>
+        </a>
+        <div class="caption">
+          <h3><a href="https://vuiapp.vn/en/" target="_blank" rel="noopener">Vui App<span aria-hidden="true">&#8599;</span></a></h3>
+          <p class="what">Earned-wage access app for Vietnamese workers; marketing site for employers and employees.</p>
+          <p class="pages">
+            <a href="https://vuiapp.vn/en/" target="_blank" rel="noopener">Live site</a>
+          </p>
+          <a class="tab" href="https://vuiapp.vn/en/" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+          <p class="note">Live site; opens in a new tab.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="interiors" aria-labelledby="h-interiors">
+  <div class="wrap block-grid">
+    <div class="sign">
+      <p class="idx mono">06 / Interiors</p>
+      <h2 id="h-interiors">Interiors</h2>
+      <p class="desc">Architectural mouldings and decoration</p>
+      <p class="count">1 build</p>
+    </div>
+    <div class="row">
+
+      <article class="proj" style="--dur:48s">
+        <button class="win" data-open="https://www.doric.vn/" data-title="Doric · Live site" aria-label="Step into Doric">
+          <img src="_shared/thumbs/doric.jpg" alt="" loading="lazy">
+          <span class="step">Step in &rarr;</span>
+        </button>
+        <div class="caption">
+          <h3><a href="https://www.doric.vn/" data-open="https://www.doric.vn/" data-title="Doric · Live site">Doric<span aria-hidden="true">&rarr;</span></a></h3>
+          <p class="what">Mouldings and interior decoration brand in Hanoi: products, projects, catalogue downloads.</p>
+          <p class="pages">
+            <a href="https://www.doric.vn/" data-open="https://www.doric.vn/" data-title="Doric · Live site">Live site</a>
+          </p>
+          <a class="tab" href="https://www.doric.vn/" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+          <p class="note">Live site, Vietnamese-language.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pricing" aria-labelledby="h-pricing">
+  <div class="wrap block-grid">
+    <div class="sign">
+      <p class="idx mono">07 / Pricing</p>
+      <h2 id="h-pricing">What it costs</h2>
+      <p class="desc">A store that sells while you sleep. Designed around your customer, built to convert.</p>
+      <p class="count">Pick a scope, slide the size, see your number</p>
+    </div>
+    <div class="price">
+      <div class="scope" role="radiogroup" aria-label="Scope">
+        <label><input type="radio" name="scope" value="design" checked><b>Design only</b><small>Research, UX, UI, prototype, developer handoff</small></label>
+        <label><input type="radio" name="scope" value="build"><b>Design + build</b><small>Plus storefront code, CMS, payments, launch</small></label>
+        <label><input type="radio" name="scope" value="seo"><b>Design + build + SEO</b><small>Plus technical SEO and three months of search work</small></label>
+      </div>
+      <div class="scale">
+        <label for="scale">Project size</label>
+        <input id="scale" type="range" min="0" max="100" value="35" aria-describedby="est-note">
+        <div class="scale-ticks"><span>Landing page, one product</span><span>Store, about 50 products</span><span>Custom platform</span></div>
+      </div>
+      <div class="estimate" aria-live="polite">
+        <p class="est-label mono">Your estimate</p>
+        <p class="est"><span id="est-lo">$3,500</span><i>to</i><span id="est-hi">$7,000</span></p>
+        <p class="est-note mono" id="est-note">Design only · a store with about 50 products</p>
+      </div>
+      <div class="bands-wrap" hidden><table class="bands">
+        <thead><tr><th>Who builds it</th><th>Design only</th><th>Design + build</th><th>SEO, monthly</th></tr></thead>
+        <tbody>
+          <tr data-band="vn-template"><td>Vietnam, template studios</td><td>—</td><td>$80 – $300</td><td>—</td></tr>
+          <tr data-band="vn-custom"><td>Vietnam, custom agencies</td><td>$250 – $800</td><td>$270 – $1,900</td><td>—</td></tr>
+          <tr data-band="intl-freelance" class="is-on"><td>International freelancers</td><td>$1,500 – $6,000</td><td>$2,500 – $15,000</td><td>$500 – $1,500</td></tr>
+          <tr data-band="intl-agency"><td>International agencies</td><td>$4,000 – $15,000</td><td>$6,000 – $35,000</td><td>$1,000 – $3,200</td></tr>
+        </tbody>
+      </table></div>
+      <p class="src" hidden>Ranges compiled October 2026 from public rate cards and surveys: Sapo, Mona Media, Tất Thành and CVM for Vietnam (2 – 50 million VND, converted at about 26,000 VND per USD); OuterBox, Project Cost Estimator and SEO provider surveys for international work. Design-only figures are derived from published hourly rates. Vendor numbers, directional only. Spaceflow quotes each project on scope.</p>
+      <a class="btn-quote" href="#" id="quote-link">Ask for a quote →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Spaceflow Design</b> &mdash; independent product &amp; web design studio, Vietnam (GMT+7)</span>
+    <span>Previews use placeholder content.</span>
+  </div>
+</footer>
+
+<!-- viewer -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Live preview">
+  <div class="viewer-bar">
+    <button class="vbtn" id="viewer-close">&larr; Close</button>
+    <div class="title" id="viewer-title"></div>
+    <div class="seg" role="group" aria-label="Device">
+      <button data-device="desktop" aria-pressed="true">Desktop</button>
+      <button data-device="mobile" aria-pressed="false">Mobile</button>
+    </div>
+    <a class="vbtn" id="viewer-open" href="#" target="_blank" rel="noopener">Open in a new tab &#8599;</a>
+  </div>
+  <div class="viewer-stage" id="viewer-stage" data-device="desktop">
+    <iframe id="viewer-frame" title="Preview" src="about:blank"></iframe>
+    <div class="shot" id="viewer-shot" hidden><img id="viewer-shot-img" alt="Full-page capture of the site"><p class="shot-note mono">Captured page. The live site does not allow embedding; use "Open in a new tab" for the real thing.</p></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var viewer=document.getElementById('viewer'),frame=document.getElementById('viewer-frame'),
+      title=document.getElementById('viewer-title'),openLink=document.getElementById('viewer-open'),
+      stage=document.getElementById('viewer-stage'),lastFocus=null;
+  var shotBox=document.getElementById('viewer-shot'),shotImg=document.getElementById('viewer-shot-img'),shots=null;
+  function applyShot(){if(!shots)return;shotImg.src=stage.dataset.device==='mobile'&&shots.m?shots.m:shots.d;shotBox.scrollTop=0}
+  function open(src,label,trigger,shotD,shotM){
+    var parts=label.split(' · '),s=document.createElement('strong');
+    s.textContent=parts[0];title.textContent='';title.appendChild(s);
+    title.appendChild(document.createTextNode(parts[1]?' · '+parts[1]:''));
+    openLink.href=src;
+    if(shotD){shots={d:shotD,m:shotM};frame.src='about:blank';viewer.classList.add('is-shot');shotBox.hidden=false;applyShot()}
+    else{shots=null;viewer.classList.remove('is-shot');shotBox.hidden=true;shotImg.removeAttribute('src');frame.src=src}
+    lastFocus=trigger;viewer.classList.add('is-open');document.body.style.overflow='hidden';
+    document.getElementById('viewer-close').focus();
+  }
+  function close(){
+    viewer.classList.remove('is-open');viewer.classList.remove('is-shot');frame.src='about:blank';shotBox.hidden=true;shotImg.removeAttribute('src');shots=null;document.body.style.overflow='';
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  document.querySelectorAll('[data-open]').forEach(function(el){
+    el.addEventListener('click',function(e){e.preventDefault();open(el.getAttribute('data-open'),el.getAttribute('data-title'),el,el.getAttribute('data-shot'),el.getAttribute('data-shot-m'))});
+  });
+  document.getElementById('viewer-close').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&viewer.classList.contains('is-open'))close()});
+  viewer.querySelectorAll('.seg button').forEach(function(b){
+    b.addEventListener('click',function(){
+      viewer.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');stage.dataset.device=b.dataset.device;applyShot();
+    });
+  });
+
+  // signage headings never break mid-word: shrink to fit the column
+  function fitSigns(){document.querySelectorAll('.sign h2').forEach(function(h){h.classList.remove('fit');h.style.removeProperty('--fit');
+    var w=h.parentElement.clientWidth,base=parseFloat(getComputedStyle(h).fontSize);if(h.scrollWidth>w){h.style.setProperty('--fit',Math.floor(base*w/h.scrollWidth*.98)+'px');h.classList.add('fit')}})}
+  fitSigns();window.addEventListener('resize',fitSigns);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitSigns);
+
+  // projects menu
+  var menu=document.getElementById('menu'),menuBtn=menu.querySelector('.menu-btn'),menuList=document.getElementById('menu-list');
+  function setMenu(open){menuBtn.setAttribute('aria-expanded',open?'true':'false');menuList.hidden=!open}
+  menuBtn.addEventListener('click',function(){setMenu(menuList.hidden)});
+  document.addEventListener('click',function(e){if(!menu.contains(e.target))setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!menuList.hidden){setMenu(false);menuBtn.focus()}});
+  menuList.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
+
+  // nav highlight (menu rows + button label)
+  var links=[].slice.call(document.querySelectorAll('.menu-list a'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+    var name='';links.forEach(function(a){var on=a.getAttribute('href')==='#'+e.target.id;a.classList.toggle('is-active',on);if(on)name=a.childNodes[1].textContent});
+    menuBtn.innerHTML='Projects'+(name?' <b>· '+name+'</b>':'')+' <span class="caret" aria-hidden="true"></span>'}})},{rootMargin:'-40% 0px -55% 0px'});
+  document.querySelectorAll('.block').forEach(function(s){io.observe(s)});
+
+  // field: the lit "+" grid follows the pointer with a little lag
+  var field=document.querySelector('.field'),fx=-999,fy=-999,tx=-999,ty=-999,raf=null;
+  function tick(){fx+=(tx-fx)*.07;fy+=(ty-fy)*.07;field.style.setProperty('--mx',fx.toFixed(1)+'px');field.style.setProperty('--my',fy.toFixed(1)+'px');
+    if(Math.abs(tx-fx)>.2||Math.abs(ty-fy)>.2)raf=requestAnimationFrame(tick);else raf=null}
+  window.addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;if(!raf)raf=requestAnimationFrame(tick)},{passive:true});
+  window.addEventListener('pointerdown',function(){field.classList.add('is-down');setTimeout(function(){field.classList.remove('is-down')},520)});
+  document.documentElement.addEventListener('mouseleave',function(){tx=-999;ty=-999;if(!raf)raf=requestAnimationFrame(tick)});
+  // step back while the pointer is over something to read or pick
+  var quietSel='.price,.caption,.sign,.hero .wrap,.bar,.viewer,.win';
+  document.addEventListener('pointerover',function(e){field.classList.toggle('is-quiet',!!(e.target.closest&&e.target.closest(quietSel)))});
+
+  // pricing calculator
+  var scale=document.getElementById('scale'),estLo=document.getElementById('est-lo'),estHi=document.getElementById('est-hi'),estNote=document.getElementById('est-note');
+  var scopeName={design:'Design only',build:'Design + build',seo:'Design + build + SEO'};
+  function lerp(a,b,t){return a+(b-a)*t}
+  function money(n){n=Math.round(n/100)*100;return '$'+n.toLocaleString('en-US')}
+  function calc(){
+    var t=Math.pow(scale.value/100,1.35),s=document.querySelector('input[name="scope"]:checked').value;
+    // Design + build starts at $2,500; the other scopes keep the same proportions
+    var lo=lerp(1300,10000,t),hi=lerp(2700,20000,t);
+    if(s!=='design'){lo=lerp(2500,25000,t);hi=lerp(5000,50000,t)}
+    if(s==='seo'){lo+=lerp(1000,7500,t);hi+=lerp(2000,15000,t)}
+    estLo.textContent=money(lo);estHi.textContent=money(hi);
+    var size=scale.value<34?'a landing page or a one-product shop':scale.value<67?'a store with about 50 products':'a custom platform with integrations';
+    estNote.textContent=scopeName[s]+' · '+size+(s==='seo'?' · SEO counted for three months':'');
+    document.querySelectorAll('.bands tr[data-band]').forEach(function(r){r.classList.toggle('is-on',r.dataset.band===(t<.5?'intl-freelance':'intl-agency'))});
+  }
+  scale.addEventListener('input',calc);
+  document.querySelectorAll('input[name="scope"]').forEach(function(i){i.addEventListener('change',calc)});
+  calc();
+
+  // walk only while the window is on screen
+  var live=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('live',e.isIntersecting)})},{rootMargin:'120px 0px'});
+  document.querySelectorAll('.win:not(.empty)').forEach(function(w){live.observe(w)});
+
+  // entrance
+  if(window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var heroEls='.hero .kicker, .hero h1, .hero .sub, .hero .index, .hero .key';
+    gsap.set(heroEls,{y:24,opacity:0});
+    gsap.to(heroEls,{y:0,opacity:1,duration:1,stagger:.1,ease:'power3.out',delay:.1});
+    gsap.set('.proj',{y:24,opacity:0});
+    var seen=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      gsap.to(e.target,{y:0,opacity:1,duration:.9,ease:'power3.out',delay:(parseInt(e.target.dataset.i||0)%3)*.08});seen.unobserve(e.target)}})},{threshold:.1});
+    document.querySelectorAll('.proj').forEach(function(c,i){c.dataset.i=i;seen.observe(c)});
+    // safety: a throttled tab (rAF paused) must never leave the page blank
+    setTimeout(function(){gsap.set(heroEls+', .proj',{clearProps:'opacity,transform'})},3000);
+  }
+})();
+</script>
+</body>
+</html>
