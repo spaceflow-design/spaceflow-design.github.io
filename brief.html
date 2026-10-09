@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project brief — Spaceflow Design</title>
+<meta name="description" content="A short project brief for prospective clients of Spaceflow Design: tell us about your store, catalogue, market and timing so we can come back with a rough plan and a quote.">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23080808'/%3E%3Cpath d='M7 21c6 0 8-4 10-8s4-6 8-6' fill='none' stroke='%23FAFAFA' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080808;--text:#FAFAFA;--muted:#8A8A8A;--line:#262626;--accent:#0EA5E9;
+  --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --gut:clamp(20px,5vw,80px);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;color-scheme:dark}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1440px;margin:0 auto;padding-inline:var(--gut)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+
+/* ---- progress ---- */
+.progress{position:fixed;left:0;top:0;width:100%;height:1px;z-index:40;background:transparent;pointer-events:none}
+.progress i{display:block;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%}
+
+/* ---- bar ---- */
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:52px}
+.mark{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.logo img{display:block;width:22px;height:22px}
+.wordmark{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--text)}
+.wordmark i{font-style:normal;color:var(--accent)}
+.nav-link{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 0;white-space:nowrap;transition:color .25s var(--ease)}
+.nav-link:hover{color:var(--text)}
+
+/* ---- hero ---- */
+.hero{padding:clamp(48px,8vw,96px) 0 clamp(32px,5vw,56px)}
+.hero .kicker{color:var(--muted);margin-bottom:24px}
+.hero h1{font-size:clamp(36px,6vw,80px);font-weight:300;line-height:1.04;letter-spacing:-.025em;max-width:16ch}
+.hero .sub{margin-top:28px;max-width:58ch;color:var(--muted);font-size:clamp(16px,1.4vw,20px);line-height:1.5}
+
+/* ---- form ---- */
+.brief{max-width:760px;margin-inline:auto;padding-bottom:clamp(56px,8vw,112px)}
+.sec{border-top:1px solid var(--line);padding:clamp(28px,4vw,44px) 0 clamp(28px,4vw,44px)}
+.sec>.idx{color:var(--muted);margin-bottom:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 14px}
+.full{grid-column:1/-1}
+.fld{display:block;min-width:0}
+fieldset.fld{border:0;min-inline-size:0}
+.lab,legend.lab{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding:0}
+.lab.q{font-family:var(--sans);font-size:15px;letter-spacing:0;text-transform:none;color:var(--text)}
+.req{color:var(--accent);margin-left:.25em;font-family:var(--sans)}
+.hint{margin-top:8px;color:var(--muted);font-size:13px;line-height:1.45}
+.hint.mono{font-size:11px;letter-spacing:.04em}
+
+.fld input[type=text],.fld input[type=email],.fld input[type=tel],.fld input[type=url],.fld input[type=number],.fld input[type=date],.fld textarea,.fld select{
+  width:100%;background:#0d0d0d;border:1px solid var(--line);border-radius:2px;color:var(--text);font:inherit;font-size:15px;padding:11px 12px;transition:border-color .2s}
+.fld select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:36px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 19px) 50%,calc(100% - 14px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.fld select option{background:#0d0d0d;color:var(--text)}
+.fld input::placeholder,.fld textarea::placeholder{color:#4e4e4e}
+.fld input:focus,.fld textarea:focus,.fld select:focus{outline:none;border-color:var(--accent)}
+.fld textarea{resize:vertical;min-height:110px}
+.fld input[type=number]{max-width:160px;-moz-appearance:textfield}
+.fld input[type=date]{max-width:220px}
+.brief.is-invalid :invalid{border-color:#c8321e}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:2px;padding:9px 14px;font-size:14px;line-height:1.3;color:var(--muted);cursor:pointer;user-select:none;transition:border-color .2s,background .2s,color .2s}
+.chip:hover{border-color:#3d3d3d;color:var(--text)}
+.chip:has(input:checked){border-color:var(--accent);background:#0b1117;color:var(--text)}
+.chip:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+.chip input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.chips.col{flex-direction:column;align-items:stretch}
+.chips.col .chip{width:100%}
+.brief.is-invalid .chips.bad .chip{border-color:#c8321e}
+.inline-other{margin-top:10px;max-width:320px}
+.inline-other[hidden]{display:none}
+.launch{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+.launch .chips{align-self:center}
+
+/* submit */
+.submit{border-top:1px solid var(--line);padding-top:clamp(28px,4vw,40px)}
+.btn-quote{justify-self:start;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:12px 16px;border:1px solid var(--text);border-radius:2px;color:var(--text);transition:background .2s,color .2s}
+.btn-quote:hover{background:var(--text);color:var(--bg)}
+.btn-quote[disabled]{opacity:.5;cursor:default;pointer-events:none}
+.err{margin-bottom:16px;color:#e0583f;font-size:11px;letter-spacing:.04em}
+.err[hidden]{display:none}
+.fine{margin-top:16px;color:var(--muted);font-size:11px;letter-spacing:.04em}
+
+/* thank-you */
+.thanks{padding:clamp(24px,4vw,48px) 0 clamp(64px,10vw,140px);max-width:760px;margin-inline:auto}
+.thanks[hidden],.brief[hidden]{display:none}
+.thanks .idx{color:var(--muted)}
+.thanks h2{font-size:clamp(28px,4vw,52px);font-weight:300;letter-spacing:-.02em;line-height:1.1;margin-top:12px}
+.thanks .lede{margin-top:14px;color:var(--muted);font-size:clamp(16px,1.4vw,19px);max-width:48ch}
+.thanks .late{margin-top:18px;color:var(--muted);font-size:12px;letter-spacing:.04em}
+.thanks .btn-quote{display:inline-block;margin-top:28px}
+
+/* footer */
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:36px 48px;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+footer b{color:var(--text);font-weight:400}
+
+@media (max-width:759px){.wordmark{display:none}}
+@media (max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .fld input[type=number],.fld input[type=date]{max-width:none}
+  .inline-other{max-width:none}
+  .launch{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="progress"></i></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="index.html" aria-label="Spaceflow Design, back to the showcase"><span class="logo"><img src="_shared/logo-mark.svg" alt="" width="22" height="22"></span><span class="wordmark">spaceflow<i>.design</i></span></a>
+    <nav aria-label="Site"><a class="nav-link" href="index.html">&larr; Back to the showcase</a></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker mono">Project brief &middot; about 5 minutes</p>
+    <h1>Tell us about your store.</h1>
+    <p class="sub">Answer what you can. Short answers are fine, we will ask the rest on a call.</p>
+  </div>
+</section>
+
+<div class="wrap">
+<form class="brief" id="brief" novalidate>
+
+  <!-- 01 -->
+  <section class="sec" aria-labelledby="s1">
+    <p class="idx mono" id="s1">01 / You</p>
+    <div class="grid">
+      <label class="fld"><span class="lab">Name<b class="req">*</b></span><input type="text" name="name" required autocomplete="name" placeholder="Your name"></label>
+      <label class="fld"><span class="lab">Company</span><input type="text" name="company" autocomplete="organization" placeholder="Company or brand"></label>
+      <label class="fld"><span class="lab">Email<b class="req">*</b></span><input type="email" name="email" required autocomplete="email" placeholder="you@company.com"></label>
+      <label class="fld"><span class="lab">Phone or WhatsApp / Zalo<b class="req">*</b></span><input type="tel" name="phone" required autocomplete="tel" placeholder="+84 …"></label>
+      <label class="fld full"><span class="lab">Country / city</span><input type="text" name="location" autocomplete="off" placeholder="Hanoi, Vietnam"></label>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="sec" aria-labelledby="s2">
+    <p class="idx mono" id="s2">02 / The business</p>
+    <div class="grid">
+      <label class="fld full"><span class="lab q">What do you sell or do?<b class="req">*</b></span><textarea name="business" rows="4" required placeholder="Products, customers, what makes it yours."></textarea></label>
+      <fieldset class="fld full"><legend class="lab">Stage</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="stage" value="An idea">An idea</label>
+          <label class="chip"><input type="radio" name="stage" value="Launching soon">Launching soon</label>
+          <label class="chip"><input type="radio" name="stage" value="Already selling offline">Already selling offline</label>
+          <label class="chip"><input type="radio" name="stage" value="Already selling online">Already selling online</label>
+        </div>
+      </fieldset>
+      <label class="fld full"><span class="lab">Current website or social page <em style="font-style:normal;text-transform:none;letter-spacing:0">(optional)</em></span><input type="url" name="current_site" autocomplete="url" placeholder="https://"></label>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="sec" aria-labelledby="s3">
+    <p class="idx mono" id="s3">03 / Market</p>
+    <div class="grid">
+      <fieldset class="fld full"><legend class="lab q">Who do you sell to?</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="market" value="Vietnam">Vietnam</label>
+          <label class="chip"><input type="checkbox" name="market" value="International">International</label>
+          <label class="chip"><input type="checkbox" name="market" value="Both">Both</label>
+        </div>
+      </fieldset>
+      <label class="fld full"><span class="lab q">Which countries matter most?</span><input type="text" name="countries" placeholder="Vietnam, US, Singapore…"></label>
+      <fieldset class="fld full"><legend class="lab">Languages the site needs</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="languages" value="English">English</label>
+          <label class="chip"><input type="checkbox" name="languages" value="Vietnamese">Vietnamese</label>
+          <label class="chip"><input type="checkbox" name="languages" value="Other" id="lang-other">Other</label>
+        </div>
+        <input class="inline-other" type="text" name="languages_other" id="lang-other-text" placeholder="Which language?" aria-label="Other language" hidden>
+      </fieldset>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="sec" aria-labelledby="s4">
+    <p class="idx mono" id="s4">04 / Branding</p>
+    <div class="grid">
+      <fieldset class="fld full"><legend class="lab q">Do you have branding?</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="branding" value="Logo + brand guide">Logo + brand guide</label>
+          <label class="chip"><input type="radio" name="branding" value="Logo only">Logo only</label>
+          <label class="chip"><input type="radio" name="branding" value="Nothing yet">Nothing yet</label>
+        </div>
+      </fieldset>
+      <div class="fld full"><label for="brand-files" class="lab q" style="display:block">Link to your brand files (Drive, Dropbox, Figma)</label><input type="url" id="brand-files" name="brand_files" placeholder="https://" aria-describedby="brand-files-hint"><p class="hint" id="brand-files-hint">Logo, colours, fonts, photos. We do not need files attached here.</p></div>
+      <label class="fld full"><span class="lab q">Brand references you like</span><textarea name="references" rows="3" placeholder="2–3 links or names"></textarea></label>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="sec" aria-labelledby="s5">
+    <p class="idx mono" id="s5">05 / Catalogue</p>
+    <div class="grid">
+      <fieldset class="fld full"><legend class="lab q">How many products?</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="products" value="1–10">1–10</label>
+          <label class="chip"><input type="radio" name="products" value="11–50">11–50</label>
+          <label class="chip"><input type="radio" name="products" value="51–200">51–200</label>
+          <label class="chip"><input type="radio" name="products" value="200+">200+</label>
+        </div>
+      </fieldset>
+      <label class="fld full"><span class="lab q">How many categories?</span><input type="number" name="categories" min="0" max="999" inputmode="numeric" placeholder="e.g. 6"></label>
+      <fieldset class="fld full"><legend class="lab q">Do you have product photos?</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="photos" value="Yes, ready">Yes, ready</label>
+          <label class="chip"><input type="radio" name="photos" value="Some">Some</label>
+          <label class="chip"><input type="radio" name="photos" value="No, we need a shoot">No, we need a shoot</label>
+        </div>
+      </fieldset>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="sec" aria-labelledby="s6">
+    <p class="idx mono" id="s6">06 / Selling online</p>
+    <div class="grid">
+      <fieldset class="fld full"><legend class="lab q">Do customers need to buy on the site?</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="buy_on_site" value="Yes, full checkout">Yes, full checkout</label>
+          <label class="chip"><input type="radio" name="buy_on_site" value="Catalogue + contact / quote">Catalogue + contact / quote</label>
+          <label class="chip"><input type="radio" name="buy_on_site" value="Not sure yet">Not sure yet</label>
+        </div>
+      </fieldset>
+      <fieldset class="fld full"><legend class="lab">Payment methods wanted</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="payments" value="Cards">Cards</label>
+          <label class="chip"><input type="checkbox" name="payments" value="Bank transfer">Bank transfer</label>
+          <label class="chip"><input type="checkbox" name="payments" value="Cash on delivery">Cash on delivery</label>
+          <label class="chip"><input type="checkbox" name="payments" value="PayPal">PayPal</label>
+          <label class="chip"><input type="checkbox" name="payments" value="Momo / VNPay / ZaloPay">Momo / VNPay / ZaloPay</label>
+          <label class="chip"><input type="checkbox" name="payments" value="Other">Other</label>
+        </div>
+      </fieldset>
+      <fieldset class="fld full"><legend class="lab">Shipping</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="shipping" value="Domestic">Domestic</label>
+          <label class="chip"><input type="checkbox" name="shipping" value="International">International</label>
+          <label class="chip"><input type="checkbox" name="shipping" value="Pickup">Pickup</label>
+        </div>
+      </fieldset>
+      <fieldset class="fld full"><legend class="lab">Anything connected?</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="integrations" value="Inventory / ERP">Inventory / ERP</label>
+          <label class="chip"><input type="checkbox" name="integrations" value="Marketplace (Shopee, Lazada, Amazon)">Marketplace (Shopee, Lazada, Amazon)</label>
+          <label class="chip"><input type="checkbox" name="integrations" value="CRM / email">CRM / email</label>
+          <label class="chip"><input type="checkbox" name="integrations" value="Not sure">Not sure</label>
+        </div>
+      </fieldset>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="sec" aria-labelledby="s7">
+    <p class="idx mono" id="s7">07 / Scope</p>
+    <div class="grid">
+      <fieldset class="fld full"><legend class="lab q">Pages you expect</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="pages" value="Home">Home</label>
+          <label class="chip"><input type="checkbox" name="pages" value="Category">Category</label>
+          <label class="chip"><input type="checkbox" name="pages" value="Product">Product</label>
+          <label class="chip"><input type="checkbox" name="pages" value="Cart & checkout">Cart &amp; checkout</label>
+          <label class="chip"><input type="checkbox" name="pages" value="About">About</label>
+          <label class="chip"><input type="checkbox" name="pages" value="Blog / journal">Blog / journal</label>
+          <label class="chip"><input type="checkbox" name="pages" value="Contact">Contact</label>
+          <label class="chip"><input type="checkbox" name="pages" value="Other">Other</label>
+        </div>
+      </fieldset>
+      <fieldset class="fld full"><legend class="lab q">Scope</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="scope" value="Design only">Design only</label>
+          <label class="chip"><input type="radio" name="scope" value="Design + build">Design + build</label>
+          <label class="chip"><input type="radio" name="scope" value="Design + build + SEO">Design + build + SEO</label>
+          <label class="chip"><input type="radio" name="scope" value="Help me decide">Help me decide</label>
+        </div>
+      </fieldset>
+      <fieldset class="fld full"><legend class="lab q">Budget range <em style="font-style:normal;color:var(--muted);font-size:13px">(optional)</em></legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="budget" value="Under $3k">Under $3k</label>
+          <label class="chip"><input type="radio" name="budget" value="$3k–8k">$3k–8k</label>
+          <label class="chip"><input type="radio" name="budget" value="$8k–20k">$8k–20k</label>
+          <label class="chip"><input type="radio" name="budget" value="$20k+">$20k+</label>
+          <label class="chip"><input type="radio" name="budget" value="Prefer not to say">Prefer not to say</label>
+        </div>
+      </fieldset>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="sec" aria-labelledby="s8">
+    <p class="idx mono" id="s8">08 / Timing</p>
+    <div class="grid">
+      <fieldset class="fld full"><legend class="lab q">When do you want to launch?<b class="req">*</b></legend>
+        <div class="launch">
+          <input type="date" name="launch_date" id="launch-date" required aria-label="Launch date">
+          <div class="chips">
+            <label class="chip"><input type="radio" name="launch_window" value="ASAP">ASAP</label>
+            <label class="chip"><input type="radio" name="launch_window" value="1–2 months">1–2 months</label>
+            <label class="chip"><input type="radio" name="launch_window" value="3–6 months">3–6 months</label>
+            <label class="chip"><input type="radio" name="launch_window" value="Flexible">Flexible</label>
+          </div>
+        </div>
+        <p class="hint">Pick a target date, then say how firm it is.</p>
+      </fieldset>
+      <label class="fld full"><span class="lab q">Is the date tied to an event?</span><input type="text" name="launch_event" placeholder="A trade show, a season, a campaign…"></label>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section class="sec" aria-labelledby="s9">
+    <p class="idx mono" id="s9">09 / Working together</p>
+    <div class="grid">
+      <label class="fld"><span class="lab">Your time zone</span>
+        <select name="timezone">
+          <option value="">Select…</option>
+          <option>GMT+7 Vietnam</option>
+          <option>GMT+8 Singapore</option>
+          <option>GMT+9 Tokyo</option>
+          <option>GMT+10 Sydney</option>
+          <option>GMT+1 Berlin</option>
+          <option>GMT London</option>
+          <option>GMT−5 New York</option>
+          <option>GMT−8 Los Angeles</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <div class="fld" aria-hidden="true"></div>
+      <fieldset class="fld full"><legend class="lab q">Best times for a call</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="call_times" value="Weekday mornings">Weekday mornings</label>
+          <label class="chip"><input type="checkbox" name="call_times" value="Weekday afternoons">Weekday afternoons</label>
+          <label class="chip"><input type="checkbox" name="call_times" value="Weekday evenings">Weekday evenings</label>
+          <label class="chip"><input type="checkbox" name="call_times" value="Weekends">Weekends</label>
+        </div>
+        <p class="hint mono">In your time zone.</p>
+      </fieldset>
+      <fieldset class="fld full"><legend class="lab q">Preferred channel</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="channel" value="Email">Email</label>
+          <label class="chip"><input type="radio" name="channel" value="Zoom / Google Meet">Zoom / Google Meet</label>
+          <label class="chip"><input type="radio" name="channel" value="WhatsApp">WhatsApp</label>
+          <label class="chip"><input type="radio" name="channel" value="Zalo">Zalo</label>
+          <label class="chip"><input type="radio" name="channel" value="Telegram">Telegram</label>
+        </div>
+      </fieldset>
+      <label class="fld full"><span class="lab q">Anything else?</span><textarea name="notes" rows="4" placeholder="Anything we should know before we talk."></textarea></label>
+    </div>
+  </section>
+
+  <div class="submit">
+    <p class="err mono" id="brief-err" role="alert" hidden>Please fill in the fields marked * (a valid email and a launch date).</p>
+    <button class="btn-quote" type="submit" id="brief-submit">Send the brief &rarr;</button>
+    <p class="fine mono">We reply within one working day. Nothing here is binding.</p>
+  </div>
+</form>
+
+<section class="thanks" id="thanks" aria-live="polite" hidden>
+  <p class="idx mono">Received</p>
+  <h2 tabindex="-1" id="thanks-title">Thank you, <span id="thanks-name"></span>. We have your brief.</h2>
+  <p class="lede">We will read it and come back within one working day with questions, a rough plan and a quote.</p>
+  <p class="late mono" id="thanks-late" hidden>If you do not hear from us in two days, email us again.</p>
+  <a class="btn-quote" href="index.html">Back to the showcase &rarr;</a>
+</section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Spaceflow Design</b> &mdash; independent product &amp; web design studio, Vietnam (GMT+7)</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ENDPOINT='https://formspree.io/f/moejdywp';
+  var form=document.getElementById('brief'),err=document.getElementById('brief-err'),
+      btn=document.getElementById('brief-submit'),thanks=document.getElementById('thanks'),
+      bar=document.getElementById('progress');
+
+  // launch date: not in the past
+  var d=new Date(),pad=function(n){return(n<10?'0':'')+n};
+  document.getElementById('launch-date').min=d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+
+  // "Other" language reveals a text field
+  var lo=document.getElementById('lang-other'),lt=document.getElementById('lang-other-text');
+  lo.addEventListener('change',function(){lt.hidden=!lo.checked;if(lo.checked)lt.focus();else lt.value=''});
+
+  // progress line
+  var ticking=false;
+  function prog(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    var p=h>0?Math.min(1,Math.max(0,window.scrollY/h)):0;
+    bar.style.transform='scaleX('+p+')';ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(prog)}},{passive:true});
+  window.addEventListener('resize',prog);prog();
+
+  function collect(){
+    var data={},names=[];
+    [].forEach.call(form.elements,function(el){
+      if(!el.name||names.indexOf(el.name)>-1)return;names.push(el.name);
+      var group=form.querySelectorAll('[name="'+el.name+'"]');
+      if(el.type==='checkbox'){
+        data[el.name]=[].filter.call(group,function(x){return x.checked}).map(function(x){return x.value}).join(', ');
+      }else if(el.type==='radio'){
+        var on=[].filter.call(group,function(x){return x.checked})[0];data[el.name]=on?on.value:'';
+      }else{data[el.name]=(el.value||'').trim()}
+    });
+    data.form='brief';data.sent=new Date().toISOString();data.page=location.href;
+    return data;
+  }
+
+  function showThanks(data,failed){
+    var first=(data.name||'').split(/\s+/)[0]||'';
+    document.getElementById('thanks-name').textContent=first;
+    document.getElementById('thanks-late').hidden=!failed;
+    form.hidden=true;thanks.hidden=false;
+    window.scrollTo(0,0);
+    var t=document.getElementById('thanks-title');t.focus({preventScroll:true});
+    prog();
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){
+      form.classList.add('is-invalid');err.hidden=false;
+      var bad=form.querySelector(':invalid');if(bad)bad.focus();
+      return;
+    }
+    err.hidden=true;
+    var data=collect();
+    try{localStorage.setItem('sf-brief',JSON.stringify(data))}catch(_){}
+    btn.disabled=true;btn.textContent='Sending…';
+    var ctl=('AbortController' in window)?new AbortController():null,timer=ctl?setTimeout(function(){ctl.abort()},15000):null;
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),signal:ctl?ctl.signal:undefined})
+      .then(function(r){return r.ok})
+      .catch(function(){return false})
+      .then(function(ok){if(timer)clearTimeout(timer);showThanks(data,!ok)});
+  });
+})();
+</script>
+</body>
+</html>
