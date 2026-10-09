@@ -162,30 +162,6 @@ main,footer,.bar{position:relative;z-index:1}
 .bands-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;min-width:0}
 @media (max-width:760px){.scope{grid-template-columns:1fr}.bands{font-size:12px}}
 
-/* ---- quote form ---- */
-.quote{position:fixed;inset:0;z-index:60;background:rgba(8,8,8,.86);display:grid;place-items:center;padding:16px;overflow:auto}
-.quote[hidden]{display:none}
-.quote-card{position:relative;width:min(640px,100%);background:var(--bg);border:1px solid var(--line);border-radius:2px;padding:clamp(24px,4vw,40px)}
-.quote-close{position:absolute;top:14px;right:14px;font-size:16px;line-height:1;padding:6px 10px}
-.quote-card h2{font-size:clamp(26px,3vw,38px);font-weight:300;letter-spacing:-.02em;line-height:1.1;margin-top:10px}
-.quote-sub{margin-top:10px;color:var(--muted);font-size:15px;max-width:46ch}
-.quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
-.quote-grid label{display:block}
-.quote-grid .full{grid-column:1/-1}
-.quote-grid span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.quote-grid input,.quote-grid textarea{width:100%;background:#0d0d0d;border:1px solid var(--line);border-radius:2px;color:var(--text);font:inherit;font-size:15px;padding:11px 12px;transition:border-color .2s}
-.quote-grid input::placeholder,.quote-grid textarea::placeholder{color:#4e4e4e}
-.quote-grid input:focus,.quote-grid textarea:focus{outline:none;border-color:var(--accent)}
-.quote-grid textarea{resize:vertical;min-height:120px}
-.quote.is-invalid :invalid{border-color:#c8321e}
-.quote-ctx{margin-top:14px;color:var(--muted);font-size:11px}
-.quote-err{margin-top:10px;color:#e0583f;font-size:11px}
-.quote-actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
-.quote-actions .btn-quote{justify-self:auto}
-.quote-thanks h2{margin-top:10px}
-.quote-thanks .btn-quote{margin-top:24px}
-@media (max-width:560px){.quote-grid{grid-template-columns:1fr}}
-
 /* ---- footer ---- */
 footer{border-top:1px solid var(--line)}
 footer .wrap{padding-block:36px 48px;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
@@ -552,7 +528,7 @@ footer b{color:var(--text);font-weight:400}
         </tbody>
       </table></div>
       <p class="src" hidden>Ranges compiled October 2026 from public rate cards and surveys: Sapo, Mona Media, Tất Thành and CVM for Vietnam (2 – 50 million VND, converted at about 26,000 VND per USD); OuterBox, Project Cost Estimator and SEO provider surveys for international work. Design-only figures are derived from published hourly rates. Vendor numbers, directional only. Spaceflow quotes each project on scope.</p>
-      <button class="btn-quote" type="button" id="quote-link">Ask for a quote →</button>
+      <a class="btn-quote" href="brief.html" id="quote-link">Ask for a quote →</a>
     </div>
   </div>
 </section>
@@ -563,37 +539,6 @@ footer b{color:var(--text);font-weight:400}
     <span><b>Spaceflow Design</b> &mdash; independent product &amp; web design studio, Vietnam (GMT+7)</span>
   </div>
 </footer>
-
-<!-- quote form -->
-<div class="quote" id="quote" role="dialog" aria-modal="true" aria-labelledby="quote-title" hidden>
-  <div class="quote-card">
-    <button class="quote-close vbtn" type="button" id="quote-close" aria-label="Close">&times;</button>
-    <form id="quote-form" novalidate>
-      <p class="idx mono">Request a quote</p>
-      <h2 id="quote-title">Tell us what you are building.</h2>
-      <p class="quote-sub">A few lines are enough. We reply within one working day.</p>
-      <div class="quote-grid">
-        <label><span>Name</span><input type="text" name="name" required autocomplete="name" placeholder="Your name"></label>
-        <label><span>Phone</span><input type="tel" name="phone" required autocomplete="tel" placeholder="+84 …"></label>
-        <label class="full"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@company.com"></label>
-        <label class="full"><span>What are you working on, and what do you need?</span><textarea name="message" rows="5" required placeholder="The business, the products, the pages you need, a deadline if you have one."></textarea></label>
-      </div>
-      <p class="quote-ctx mono" id="quote-ctx"></p>
-      <p class="quote-err mono" id="quote-err" hidden>Please fill in every field, with a valid email.</p>
-      <div class="quote-actions">
-        <button class="btn-quote" type="submit" id="quote-submit">Confirm →</button>
-        <button class="vbtn" type="button" id="quote-cancel">Cancel</button>
-      </div>
-    </form>
-    <div class="quote-thanks" id="quote-thanks" hidden>
-      <p class="idx mono">Received</p>
-      <h2>Thank you, <span id="quote-name"></span>.</h2>
-      <p class="quote-sub">Your request is in. We will read it carefully and reply within one working day with next steps and a quote.</p>
-      <p class="quote-sub">Want to move faster? The five-minute <a href="brief.html" style="color:var(--text);text-decoration:underline;text-underline-offset:4px">project brief</a> gives us everything we need for a precise quote.</p>
-      <button class="btn-quote" type="button" id="quote-done">Back to the showcase →</button>
-    </div>
-  </div>
-</div>
 
 <!-- viewer -->
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Live preview">
@@ -698,50 +643,10 @@ footer b{color:var(--text);font-weight:400}
   document.querySelectorAll('input[name="scope"]').forEach(function(i){i.addEventListener('change',calc)});
   calc();
 
-  // quote form: opens over the page, confirm shows a thank-you
-  // Delivery: set QUOTE_ENDPOINT to a form backend URL (e.g. Formspree) to POST the request; until then it is kept in the browser only.
-  var QUOTE_ENDPOINT='https://formspree.io/f/moejdywp';
-  var quote=document.getElementById('quote'),qForm=document.getElementById('quote-form'),qThanks=document.getElementById('quote-thanks'),
-      qErr=document.getElementById('quote-err'),qCtx=document.getElementById('quote-ctx'),qLast=null;
-  function quoteOpen(){
-    qCtx.textContent='Based on your selection: '+estNote.textContent+' · '+estLo.textContent+' to '+estHi.textContent;
-    qForm.hidden=false;qThanks.hidden=true;qErr.hidden=true;quote.classList.remove('is-invalid');
-    quote.hidden=false;document.body.style.overflow='hidden';qLast=document.activeElement;
-    setTimeout(function(){qForm.querySelector('input[name="name"]').focus()},50);
-  }
-  function quoteClose(){quote.hidden=true;document.body.style.overflow='';if(qLast&&qLast.focus)qLast.focus()}
-  document.getElementById('quote-link').addEventListener('click',quoteOpen);
-  document.getElementById('quote-close').addEventListener('click',quoteClose);
-  document.getElementById('quote-cancel').addEventListener('click',quoteClose);
-  document.getElementById('quote-done').addEventListener('click',quoteClose);
-  quote.addEventListener('click',function(e){if(e.target===quote)quoteClose()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!quote.hidden)quoteClose()});
-  qForm.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!qForm.checkValidity()){quote.classList.add('is-invalid');qErr.hidden=false;var first=qForm.querySelector(':invalid');if(first)first.focus();return}
-    var data={};new FormData(qForm).forEach(function(v,k){data[k]=v});data.context=qCtx.textContent;data.page=location.href;data.sent=new Date().toISOString();
-    try{var box=JSON.parse(localStorage.getItem('sf-quotes')||'[]');box.push(data);localStorage.setItem('sf-quotes',JSON.stringify(box))}catch(_){}
-    if(QUOTE_ENDPOINT){fetch(QUOTE_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).catch(function(){})}
-    document.getElementById('quote-name').textContent=data.name.trim().split(/\s+/)[0]||'';
-    qForm.hidden=true;qThanks.hidden=false;document.getElementById('quote-done').focus();qForm.reset();quote.classList.remove('is-invalid');
-  });
-
-  // walk only while the window is on screen
-  var live=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('live',e.isIntersecting)})},{rootMargin:'120px 0px'});
-  document.querySelectorAll('.win:not(.empty)').forEach(function(w){live.observe(w)});
-
-  // entrance
-  if(window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches){
-    var heroEls='.hero .kicker, .hero h1, .hero .sub, .hero .index, .hero .key';
-    gsap.set(heroEls,{y:24,opacity:0});
-    gsap.to(heroEls,{y:0,opacity:1,duration:1,stagger:.1,ease:'power3.out',delay:.1});
-    gsap.set('.proj',{y:24,opacity:0});
-    var seen=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
-      gsap.to(e.target,{y:0,opacity:1,duration:.9,ease:'power3.out',delay:(parseInt(e.target.dataset.i||0)%3)*.08});seen.unobserve(e.target)}})},{threshold:.1});
-    document.querySelectorAll('.proj').forEach(function(c,i){c.dataset.i=i;seen.observe(c)});
-    // safety: a throttled tab (rAF paused) must never leave the page blank
-    setTimeout(function(){gsap.set(heroEls+', .proj',{clearProps:'opacity,transform'})},3000);
-  }
+  // the quote button carries the visitor's selection into the brief
+  var quoteLink=document.getElementById('quote-link');
+  function syncQuote(){var sc=document.querySelector('input[name="scope"]:checked').value;quoteLink.href='brief.html?scope='+sc+'&size='+scale.value+'&est='+encodeURIComponent(estLo.textContent+' to '+estHi.textContent)+'&note='+encodeURIComponent(estNote.textContent)}
+  scale.addEventListener('input',syncQuote);document.querySelectorAll('input[name="scope"]').forEach(function(i){i.addEventListener('change',syncQuote)});syncQuote();
 })();
 </script>
 </body>

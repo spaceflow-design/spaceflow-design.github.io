@@ -122,6 +122,8 @@ footer b{color:var(--text);font-weight:400}
   html{scroll-behavior:auto}
   *{transition:none!important}
 }
+.ctx{margin:0 0 24px;color:var(--accent);font-size:11px;letter-spacing:.06em;line-height:1.7}
+.ctx[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -136,7 +138,7 @@ footer b{color:var(--text);font-weight:400}
 </header>
 
 <main>
-<section class="hero">
+<section class="hero" id="hero">
   <div class="wrap">
     <p class="kicker mono">Project brief &middot; about 5 minutes</p>
     <h1>Tell us about your store.</h1>
@@ -146,6 +148,8 @@ footer b{color:var(--text);font-weight:400}
 
 <div class="wrap">
 <form class="brief" id="brief" novalidate>
+  <input type="hidden" name="context" id="ctx-field">
+  <p class="ctx mono" id="ctx-line" hidden></p>
 
   <!-- 01 -->
   <section class="sec" aria-labelledby="s1">
@@ -410,6 +414,12 @@ footer b{color:var(--text);font-weight:400}
   // launch date: not in the past
   var d=new Date(),pad=function(n){return(n<10?'0':'')+n};
   document.getElementById('launch-date').min=d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+
+  // selection carried over from the showcase pricing block
+  (function(){var q=new URLSearchParams(location.search);if(!q.get('scope'))return;var map={design:'Design only',build:'Design + build',seo:'Design + build + SEO'};
+    var r=document.querySelector('input[name="scope"][value="'+map[q.get('scope')]+'"]');if(r)r.checked=true;
+    var txt='From the showcase: '+(q.get('note')||map[q.get('scope')])+(q.get('est')?' · '+q.get('est'):'');
+    var line=document.getElementById('ctx-line'),fld=document.getElementById('ctx-field');line.textContent=txt;line.hidden=false;fld.value=txt})();
 
   // any "Other" option reveals its own text field
   document.querySelectorAll('[data-other]').forEach(function(box){var t=document.getElementById(box.getAttribute('data-other'));if(!t)return;
