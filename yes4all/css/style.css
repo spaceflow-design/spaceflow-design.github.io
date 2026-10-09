@@ -261,17 +261,17 @@ a.card:hover .media img, .card:hover .media img { transform: scale(1.04); }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy-deep); color: var(--white); }
 .footer-inner { max-width: 1180px; margin: 0 auto; padding: 48px var(--pad); }
-.footer-grid { display: grid; grid-template-columns: 380px 220px 300px 280px; }
+.footer-grid { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.05fr) minmax(0,1fr); gap: 24px; }
 .footer-brand { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
 .footer-brand img { width: 132px; height: 57px; }
 .footer-brand p { font-size: 13px; }
 .footer-col { display: flex; flex-direction: column; gap: 16px; }
 .footer-col h4 { margin: 0; font-size: 19px; font-weight: 400; line-height: 1.5; white-space: nowrap; }
-.footer-col ul { display: flex; flex-direction: column; gap: 12px; width: 180px; font-size: 15px; }
+.footer-col ul { display: flex; flex-direction: column; gap: 12px; width: auto; max-width: 180px; font-size: 15px; }
 .footer-col ul a { transition: opacity .2s; }
 .footer-col ul a:hover { opacity: .75; }
-.footer-col--contact { width: 280px; }
-.footer-col--contact ul { width: 280px; font-size: 14px; line-height: 1.6; }
+.footer-col--contact { width: auto; max-width: 280px; }
+.footer-col--contact ul { width: auto; font-size: 14px; line-height: 1.6; }
 .footer-col--contact ul li.hotline { font-size: 15px; line-height: 1.5; }
 .footer-bottom { display: grid; grid-template-columns: 900px 1fr; margin-top: 40px; }
 .footer-legal { display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
@@ -382,6 +382,8 @@ a.card:hover .media img, .card:hover .media img { transform: scale(1.04); }
   :root { --pad: 40px; }
   .nav-left { gap: 48px; }
   .product-story { width: 46%; }
+  .client { flex: 1 1 0; width: auto; min-width: 0; }
+  .client img { max-width: 100%; }
   .product-story .media { height: 380px; }
   .cat--fixed { flex: 1 0 0; }
   .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 24px; }
@@ -492,4 +494,37 @@ a.card:hover .media img, .card:hover .media img { transform: scale(1.04); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* ---------- Products page ---------- */
+.listing .wrap { display: flex; flex-direction: column; gap: 40px; padding-top: 64px; padding-bottom: 88px; }
+.filter-strip { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--white); color: var(--ink);
+  font-size: 14px; font-weight: 500; line-height: 1; white-space: nowrap; cursor: pointer;
+}
+.chip:hover { border-color: var(--navy); color: var(--navy); }
+.chip:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.chip.is-active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.filter-count { font-size: 14px; color: var(--muted); white-space: nowrap; }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 32px; }
+.product { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.product[hidden] { display: none; }
+.product .media { width: 100%; aspect-ratio: 4 / 3; background: #f0f1f3; }
+.product-cat { font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); line-height: normal; padding-top: 8px; }
+.product h3 { font-size: 24px; font-weight: 600; line-height: 1.2; letter-spacing: -0.72px; color: var(--ink); }
+.product .desc { font-size: 15px; line-height: 1.6; color: var(--muted); }
+.product .text-link { margin-top: 4px; }
+
+@media (max-width: 1100px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 960px) {
+  .listing .wrap { padding-top: 48px; padding-bottom: 56px; gap: 32px; }
+  .filter-strip { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+@media (max-width: 640px) {
+  .product-grid { grid-template-columns: 1fr; gap: 40px; }
 }

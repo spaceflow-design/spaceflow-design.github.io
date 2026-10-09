@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — Yes4All</title>
+  <meta name="description" content="Sporting goods, furniture, gardening and pet products made for everyday life and ready for every marketplace. Browse the Yes4All product categories.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="products" data-anim="true">
+
+  <header class="site-nav" id="siteNav">
+    <div class="wrap nav-inner">
+      <div class="nav-left">
+        <a class="brand" href="index.html" aria-label="Yes4All home"><img src="assets/logo.svg" width="132" height="57" alt="Yes4All"></a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#">About Us</a>
+          <a href="products.html" data-nav="products">Products <img src="assets/chevron-down.svg" width="20" height="20" alt=""></a>
+          <a href="services.html" data-nav="services">Services <img src="assets/chevron-down.svg" width="20" height="20" alt=""></a>
+          <a href="#">Career</a>
+          <a href="contact.html" data-nav="contact">Contact Us</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <a class="lang" href="#">En <img src="assets/globe.svg" width="24" height="24" alt=""></a>
+        <div class="nav-mobile">
+          <a href="contact.html">Contact</a>
+          <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="index.html" data-nav="home">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="products.html" data-nav="products">Products</a></li>
+        <li><a href="services.html" data-nav="services">Services</a></li>
+        <li><a href="#">Career</a></li>
+        <li><a href="contact.html" data-nav="contact">Contact Us</a></li>
+        <li class="lang-row"><a class="lang" href="#">En <img src="assets/globe.svg" width="24" height="24" alt=""></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Products introduction -->
+    <section class="svc-intro" id="intro">
+      <div class="wrap">
+        <div class="svc-promise">
+          <p class="breadcrumb">Home / Products</p>
+          <p class="label"><span>Products</span></p>
+          <h1 class="h1-page">
+            <span class="line"><span class="line-inner">Made for everyday life.</span></span>
+            <span class="line"><span class="line-inner">Ready for every marketplace.</span></span>
+          </h1>
+          <p class="lede">Home sporting goods, furniture, gardening and pet products, designed and manufactured by Yes4All for online retail.</p>
+          <a class="btn btn--navy" href="contact.html">Talk about sourcing <span class="arr">↗</span></a>
+        </div>
+        <div class="svc-image">
+          <div class="media"><img src="assets/cat-sporting.jpg" alt="Yes4All 10 LB slam ball"></div>
+          <p class="caption">From the gym floor to the living room.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product listing -->
+    <section class="listing" id="listing">
+      <div class="wrap">
+        <div class="filter-strip" data-reveal>
+          <div class="chips" role="group" aria-label="Filter by category">
+            <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="chip" type="button" data-filter="sporting-goods-indoor" aria-pressed="false">Sporting Goods – Indoor</button>
+            <button class="chip" type="button" data-filter="sporting-goods-outdoor" aria-pressed="false">Sporting Goods – Outdoor</button>
+            <button class="chip" type="button" data-filter="furniture" aria-pressed="false">Furniture</button>
+            <button class="chip" type="button" data-filter="gardening" aria-pressed="false">Gardening</button>
+            <button class="chip" type="button" data-filter="pet" aria-pressed="false">Pet</button>
+          </div>
+          <p class="filter-count" id="filterCount" aria-live="polite">Showing 12 of 12</p>
+        </div>
+
+        <div class="product-grid" id="productGrid" data-reveal-group>
+          <article class="product card" data-category="sporting-goods-indoor">
+            <div class="media"><img src="assets/product-dumbbell.jpg" alt="Adjustable Dumbbell Pair"></div>
+            <p class="product-cat">Sporting Goods – Indoor</p>
+            <h3>Adjustable Dumbbell Pair</h3>
+            <p class="desc">Steel plates with a quick-change dial for home strength training.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="sporting-goods-indoor">
+            <div class="media"><img src="assets/product-kettlebell.jpg" alt="Cast-Iron Kettlebell"></div>
+            <p class="product-cat">Sporting Goods – Indoor</p>
+            <h3>Cast-Iron Kettlebell</h3>
+            <p class="desc">Single-cast iron with a powder-coated finish and a wide handle.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="sporting-goods-indoor">
+            <div class="media"><img src="assets/product-yoga-mat.jpg" alt="Studio Yoga Mat"></div>
+            <p class="product-cat">Sporting Goods – Indoor</p>
+            <h3>Studio Yoga Mat</h3>
+            <p class="desc">Cushioned, non-slip mat for yoga, stretching and floor work.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="sporting-goods-indoor">
+            <div class="media"><img src="assets/product-bands.jpg" alt="Resistance Loop Band Set"></div>
+            <p class="product-cat">Sporting Goods – Indoor</p>
+            <h3>Resistance Loop Band Set</h3>
+            <p class="desc">Latex loop bands in graded resistances for mobility and conditioning.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="sporting-goods-indoor">
+            <div class="media"><img src="assets/product-foam-roller.jpg" alt="High-Density Foam Roller"></div>
+            <p class="product-cat">Sporting Goods – Indoor</p>
+            <h3>High-Density Foam Roller</h3>
+            <p class="desc">Firm EVA foam roller for muscle release and recovery routines.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="sporting-goods-outdoor">
+            <div class="media"><img src="assets/product-balance-board.jpg" alt="Wooden Balance Board"></div>
+            <p class="product-cat">Sporting Goods – Outdoor</p>
+            <h3>Wooden Balance Board</h3>
+            <p class="desc">Layered hardwood board with a roller for balance and core training.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="furniture">
+            <div class="media"><img src="assets/product-nightstand.jpg" alt="Mid-Century Nightstand"></div>
+            <p class="product-cat">Furniture</p>
+            <h3>Mid-Century Nightstand</h3>
+            <p class="desc">Solid wood legs and a single drawer in a warm acacia finish.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="furniture">
+            <div class="media"><img src="assets/product-coffee-table.jpg" alt="Oak Coffee Table"></div>
+            <p class="product-cat">Furniture</p>
+            <h3>Oak Coffee Table</h3>
+            <p class="desc">Oak-veneer top with an open lower shelf for living spaces.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="furniture">
+            <div class="media"><img src="assets/product-bookshelf.jpg" alt="Ladder Bookshelf"></div>
+            <p class="product-cat">Furniture</p>
+            <h3>Ladder Bookshelf</h3>
+            <p class="desc">Leaning ladder frame with graduated shelves for books and decor.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="gardening">
+            <div class="media"><img src="assets/product-raised-bed.jpg" alt="Cedar Raised Garden Bed"></div>
+            <p class="product-cat">Gardening</p>
+            <h3>Cedar Raised Garden Bed</h3>
+            <p class="desc">Untreated cedar planter kit for vegetables, herbs and flowers.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="gardening">
+            <div class="media"><img src="assets/product-garden-tools.jpg" alt="Garden Hand Tool Set"></div>
+            <p class="product-cat">Gardening</p>
+            <h3>Garden Hand Tool Set</h3>
+            <p class="desc">Stainless-steel trowel, cultivator and transplanter with wooden handles.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+          <article class="product card" data-category="pet">
+            <div class="media"><img src="assets/product-dog-bed.jpg" alt="Orthopedic Dog Bed"></div>
+            <p class="product-cat">Pet</p>
+            <h3>Orthopedic Dog Bed</h3>
+            <p class="desc">Memory-foam base with a removable, washable cover.</p>
+            <a class="text-link" href="contact.html">Ask about this product <img src="assets/arrow-up-right.svg" width="20" height="20" alt=""></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="clients" id="clients">
+      <div class="wrap">
+        <p class="label" data-reveal><span>Our clients</span></p>
+        <div class="client-logos" data-reveal-group>
+          <div class="client"><img src="assets/client-1.png" alt="1664 Blanc"></div>
+          <div class="client client--cover"><img src="assets/client-2.jpg" alt="Unicharm 3D Mask"></div>
+          <div class="client"><img src="assets/client-3.png" alt="AFC"></div>
+          <div class="client"><img src="assets/client-4.png" alt="Ambi Pur"></div>
+          <div class="client client--cover"><img src="assets/client-5.jpg" alt="Nestlé"></div>
+          <div class="client client--cover"><img src="assets/client-6.png" alt="Anessa"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact invitation -->
+    <section class="invite" id="contact-invite">
+      <div class="wrap">
+        <div class="invite-copy" data-reveal>
+          <p class="label"><span>Let’s talk</span></p>
+          <h2 class="h2">Your next chapter in e-commerce.</h2>
+          <p class="lede">Tell us about your business and explore where Yes4All can help.</p>
+        </div>
+        <a class="btn btn--navy" href="contact.html" data-reveal>Contact our team <span class="arr">↗</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.svg" width="132" height="57" alt="Yes4All">
+          <p>THINK BIG, GET BIG FAST</p>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html#sporting-goods-indoor">Sporting Goods - Indoor</a></li>
+            <li><a href="products.html#sporting-goods-outdoor">Sporting Goods - Outdoor</a></li>
+            <li><a href="products.html#furniture">Furniture</a></li>
+            <li><a href="products.html#gardening">Gardening</a></li>
+            <li><a href="products.html#pet">Pet</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Account Creation</a></li>
+            <li><a href="services.html">Business Strategy</a></li>
+            <li><a href="services.html">Compliance Consultant</a></li>
+            <li><a href="services.html">Listing Images &amp;<br>Content Consultant</a></li>
+            <li><a href="services.html">Market Research</a></li>
+            <li><a href="services.html">Patent Check</a></li>
+            <li><a href="services.html">Trademark</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col--contact">
+          <h4>Contact Information</h4>
+          <ul>
+            <li>US distribution center: 3172 Nasa street, Unit B, Brea, CA 92821</li>
+            <li>Vietnam Office: 127 Hong Ha Street, Ward 9, Phu Nhuan District, Ho Chi Minh City, Vietnam</li>
+            <li class="hotline">Hotline: 02836364618</li>
+            <li>Email: contact@yes4all.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <p>© Yes4All, Inc. All rights reserved.</p>
+          <a href="#">Privacy Policy <img src="assets/arrow-up.svg" width="24" height="24" alt=""></a>
+        </div>
+        <div class="footer-social">
+          <p>Social Networks</p>
+          <div class="icons">
+            <a href="#" aria-label="Facebook"><img src="assets/facebook.svg" width="32" height="32" alt=""></a>
+            <a href="#" aria-label="LinkedIn"><img src="assets/linkedin.svg" width="32" height="32" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

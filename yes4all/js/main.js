@@ -31,6 +31,60 @@
     f.addEventListener('submit', function (e) { e.preventDefault(); });
   });
 
+  /* ---------- Product filter (products.html) — instant, no animation ---------- */
+  var grid = document.getElementById('productGrid');
+  if (grid) {
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-filter]'));
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.product'));
+    var countEl = document.getElementById('filterCount');
+    var slugs = chips.map(function (c) { return c.dataset.filter; });
+
+    var applyFilter = function (slug, updateHash) {
+      if (slugs.indexOf(slug) === -1) slug = 'all';
+      var shown = 0;
+      cards.forEach(function (card) {
+        var match = slug === 'all' || card.dataset.category === slug;
+        card.hidden = !match;
+        if (match) shown++;
+      });
+      chips.forEach(function (c) {
+        var on = c.dataset.filter === slug;
+        c.classList.toggle('is-active', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      if (countEl) countEl.textContent = 'Showing ' + shown + ' of ' + cards.length;
+      if (updateHash && history.replaceState) {
+        history.replaceState(null, '', slug === 'all' ? location.pathname + location.search : '#' + slug);
+      }
+      // make sure every card is visible if the entry animation has not run yet
+      if (window.gsap) {
+        window.gsap.set(cards, { clearProps: 'opacity,visibility,transform' });
+        grid.dataset.revealed = 'true';
+        if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+      }
+    };
+
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () { applyFilter(c.dataset.filter, true); });
+    });
+    var fromHash = function () {
+      var h = (location.hash || '').replace('#', '');
+      if (h) applyFilter(h, false);
+    };
+    window.addEventListener('hashchange', fromHash);
+    // initial state: apply deep link without touching GSAP (animations are set up below)
+    var initial = (location.hash || '').replace('#', '');
+    if (initial && slugs.indexOf(initial) !== -1) {
+      cards.forEach(function (card) { card.hidden = card.dataset.category !== initial; });
+      chips.forEach(function (c) {
+        var on = c.dataset.filter === initial;
+        c.classList.toggle('is-active', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      if (countEl) countEl.textContent = 'Showing ' + cards.filter(function (c) { return !c.hidden; }).length + ' of ' + cards.length;
+    }
+  }
+
   /* ---------- Nav shadow on scroll (works without GSAP) ---------- */
   function onScroll() {
     if (!nav) return;
@@ -156,7 +210,11 @@
     gsap.set(items, { autoAlpha: 0, y: 32 });
     ST.create({
       trigger: group, start: 'top 85%', once: true,
-      onEnter: function () { gsap.to(items, { autoAlpha: 1, y: 0, duration: 0.9, ease: ease, stagger: 0.1 }); }
+      onEnter: function () {
+        if (group.dataset.revealed === 'true') { gsap.set(items, { clearProps: 'opacity,visibility,transform' }); return; }
+        gsap.to(items, { autoAlpha: 1, y: 0, duration: 0.9, ease: ease, stagger: 0.08,
+          onComplete: function () { gsap.set(items, { clearProps: 'opacity,visibility,transform' }); } });
+      }
     });
   });
 
