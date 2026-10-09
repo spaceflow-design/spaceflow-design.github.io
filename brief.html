@@ -26,7 +26,7 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .wrap{max-width:1440px;margin:0 auto;padding-inline:var(--gut)}
-.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+.mono{font-family:var(--mono);font-size:16px;letter-spacing:.06em}
 
 /* ---- progress ---- */
 .progress{position:fixed;left:0;top:0;width:100%;height:1px;z-index:40;background:transparent;pointer-events:none}
@@ -37,9 +37,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:52px}
 .mark{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
 .logo img{display:block;width:22px;height:22px}
-.wordmark{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--text)}
+.wordmark{font-family:var(--mono);font-size:16px;letter-spacing:.06em;color:var(--text)}
 .wordmark i{font-style:normal;color:var(--accent)}
-.nav-link{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 0;white-space:nowrap;transition:color .25s var(--ease)}
+.nav-link{font-family:var(--mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 0;white-space:nowrap;transition:color .25s var(--ease)}
 .nav-link:hover{color:var(--text)}
 
 /* ---- hero ---- */
@@ -56,14 +56,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .full{grid-column:1/-1}
 .fld{display:block;min-width:0}
 fieldset.fld{border:0;min-inline-size:0}
-.lab,legend.lab{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding:0}
-.lab.q{font-family:var(--sans);font-size:15px;letter-spacing:0;text-transform:none;color:var(--text)}
+.lab,legend.lab{display:block;font-family:var(--mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding:0}
+.lab.q{font-family:var(--sans);font-size:16px;letter-spacing:0;text-transform:none;color:var(--text)}
 .req{color:var(--accent);margin-left:.25em;font-family:var(--sans)}
-.hint{margin-top:8px;color:var(--muted);font-size:13px;line-height:1.45}
-.hint.mono{font-size:11px;letter-spacing:.04em}
+.hint{margin-top:8px;color:var(--muted);font-size:16px;line-height:1.45}
+.hint.mono{font-size:16px;letter-spacing:.04em}
 
 .fld input[type=text],.fld input[type=email],.fld input[type=tel],.fld input[type=url],.fld input[type=number],.fld input[type=date],.fld textarea,.fld select{
-  width:100%;background:#0d0d0d;border:1px solid var(--line);border-radius:2px;color:var(--text);font:inherit;font-size:15px;padding:11px 12px;transition:border-color .2s}
+  width:100%;background:#0d0d0d;border:1px solid var(--line);border-radius:2px;color:var(--text);font:inherit;font-size:16px;padding:11px 12px;transition:border-color .2s}
 .fld select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:36px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 19px) 50%,calc(100% - 14px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
 .fld select option{background:#0d0d0d;color:var(--text)}
 .fld input::placeholder,.fld textarea::placeholder{color:#4e4e4e}
@@ -75,7 +75,7 @@ fieldset.fld{border:0;min-inline-size:0}
 
 /* chips */
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{position:relative;display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:2px;padding:9px 14px;font-size:14px;line-height:1.3;color:var(--muted);cursor:pointer;user-select:none;transition:border-color .2s,background .2s,color .2s}
+.chip{position:relative;display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:2px;padding:9px 14px;font-size:16px;line-height:1.3;color:var(--muted);cursor:pointer;user-select:none;transition:border-color .2s,background .2s,color .2s}
 .chip:hover{border-color:#3d3d3d;color:var(--text)}
 .chip:has(input:checked){border-color:var(--accent);background:#0b1117;color:var(--text)}
 .chip:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
@@ -90,12 +90,12 @@ fieldset.fld{border:0;min-inline-size:0}
 
 /* submit */
 .submit{border-top:1px solid var(--line);padding-top:clamp(28px,4vw,40px)}
-.btn-quote{justify-self:start;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:12px 16px;border:1px solid var(--text);border-radius:2px;color:var(--text);transition:background .2s,color .2s}
+.btn-quote{justify-self:start;font-family:var(--mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;padding:12px 16px;border:1px solid var(--text);border-radius:2px;color:var(--text);transition:background .2s,color .2s}
 .btn-quote:hover{background:var(--text);color:var(--bg)}
 .btn-quote[disabled]{opacity:.5;cursor:default;pointer-events:none}
-.err{margin-bottom:16px;color:#e0583f;font-size:11px;letter-spacing:.04em}
+.err{margin-bottom:16px;color:#e0583f;font-size:16px;letter-spacing:.04em}
 .err[hidden]{display:none}
-.fine{margin-top:16px;color:var(--muted);font-size:11px;letter-spacing:.04em}
+.fine{margin-top:16px;color:var(--muted);font-size:16px;letter-spacing:.04em}
 
 /* thank-you */
 .thanks{padding:clamp(24px,4vw,48px) 0 clamp(64px,10vw,140px);max-width:760px}
@@ -103,12 +103,12 @@ fieldset.fld{border:0;min-inline-size:0}
 .thanks .idx{color:var(--muted)}
 .thanks h2{font-size:clamp(28px,4vw,52px);font-weight:300;letter-spacing:-.02em;line-height:1.1;margin-top:12px}
 .thanks .lede{margin-top:14px;color:var(--muted);font-size:clamp(16px,1.4vw,19px);max-width:48ch}
-.thanks .late{margin-top:18px;color:var(--muted);font-size:12px;letter-spacing:.04em}
+.thanks .late{margin-top:18px;color:var(--muted);font-size:16px;letter-spacing:.04em}
 .thanks .btn-quote{display:inline-block;margin-top:28px}
 
 /* footer */
 footer{border-top:1px solid var(--line)}
-footer .wrap{padding-block:36px 48px;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+footer .wrap{padding-block:36px 48px;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-family:var(--mono);font-size:16px;letter-spacing:.06em;color:var(--muted)}
 footer b{color:var(--text);font-weight:400}
 
 @media (max-width:759px){.wordmark{display:none}}
@@ -122,7 +122,7 @@ footer b{color:var(--text);font-weight:400}
   html{scroll-behavior:auto}
   *{transition:none!important}
 }
-.ctx{margin:0 0 24px;color:var(--accent);font-size:11px;letter-spacing:.06em;line-height:1.7}
+.ctx{margin:0 0 24px;color:var(--accent);font-size:16px;letter-spacing:.06em;line-height:1.7}
 .ctx[hidden]{display:none}
 </style>
 </head>
@@ -186,9 +186,9 @@ footer b{color:var(--text);font-weight:400}
     <div class="grid">
       <fieldset class="fld full"><legend class="lab q">Who do you sell to?</legend>
         <div class="chips">
-          <label class="chip"><input type="checkbox" name="market" value="Vietnam">Vietnam</label>
-          <label class="chip"><input type="checkbox" name="market" value="International">International</label>
-          <label class="chip"><input type="checkbox" name="market" value="Both">Both</label>
+          <label class="chip"><input type="radio" name="market" value="Vietnam">Vietnam</label>
+          <label class="chip"><input type="radio" name="market" value="International">International</label>
+          <label class="chip"><input type="radio" name="market" value="Both">Both</label>
         </div>
       </fieldset>
       <label class="fld full"><span class="lab q">Which countries matter most?</span><input type="text" name="countries" placeholder="Vietnam, US, Singapore…"></label>
@@ -196,6 +196,7 @@ footer b{color:var(--text);font-weight:400}
         <div class="chips">
           <label class="chip"><input type="checkbox" name="languages" value="English">English</label>
           <label class="chip"><input type="checkbox" name="languages" value="Vietnamese">Vietnamese</label>
+          <label class="chip"><input type="checkbox" name="languages" value="English + Vietnamese">Both</label>
           <label class="chip"><input type="checkbox" name="languages" value="Other" data-other="lang-other-text">Other</label>
         </div>
         <input class="inline-other" type="text" name="languages_other" id="lang-other-text" placeholder="Which language?" aria-label="Other language" hidden>
@@ -307,7 +308,7 @@ footer b{color:var(--text);font-weight:400}
           <label class="chip"><input type="radio" name="scope" value="Help me decide">Help me decide</label>
         </div>
       </fieldset>
-      <fieldset class="fld full"><legend class="lab q">Budget range <em style="font-style:normal;color:var(--muted);font-size:13px">(optional)</em></legend>
+      <fieldset class="fld full"><legend class="lab q">Budget range <em style="font-style:normal;color:var(--muted);font-size:16px">(optional)</em></legend>
         <div class="chips">
           <label class="chip"><input type="radio" name="budget" value="Under $3k">Under $3k</label>
           <label class="chip"><input type="radio" name="budget" value="$3k–8k">$3k–8k</label>
@@ -420,6 +421,10 @@ footer b{color:var(--text);font-weight:400}
     var r=document.querySelector('input[name="scope"][value="'+map[q.get('scope')]+'"]');if(r)r.checked=true;
     var txt='From the showcase: '+(q.get('note')||map[q.get('scope')])+(q.get('est')?' · '+q.get('est'):'');
     var line=document.getElementById('ctx-line'),fld=document.getElementById('ctx-field');line.textContent=txt;line.hidden=false;fld.value=txt})();
+
+  // "Both" languages excludes the single ones and vice versa
+  (function(){var g=[].slice.call(document.querySelectorAll('input[name="languages"]'));var both=g.filter(function(x){return x.value==='English + Vietnamese'})[0],singles=g.filter(function(x){return x.value==='English'||x.value==='Vietnamese'});
+    both.addEventListener('change',function(){if(both.checked)singles.forEach(function(x){x.checked=false})});singles.forEach(function(x){x.addEventListener('change',function(){if(x.checked)both.checked=false})})})();
 
   // any "Other" option reveals its own text field
   document.querySelectorAll('[data-other]').forEach(function(box){var t=document.getElementById(box.getAttribute('data-other'));if(!t)return;
