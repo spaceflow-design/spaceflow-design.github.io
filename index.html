@@ -35,7 +35,7 @@ img{display:block}
 .field{position:fixed;inset:0;z-index:0;pointer-events:none;--mr:300px;--fo:1;transition:--mr .9s var(--ease),--fo .7s var(--ease)}
 .field>div{position:absolute;inset:0}
 .field-dim{background-image:radial-gradient(circle,#2a2a2a 1px,transparent 1.6px);background-size:28px 28px;background-position:14px 14px}
-.field-lit{opacity:var(--fo);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M14 9v10M9 14h10' stroke='%230EA5E9' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-size:28px 28px;
+.field-lit{opacity:var(--fo);background-image:radial-gradient(circle,var(--accent) 2.4px,rgba(14,165,233,.35) 3px,transparent 3.6px);background-size:28px 28px;background-position:14px 14px;
   -webkit-mask:radial-gradient(var(--mr) circle at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.7) 30%,rgba(0,0,0,.25) 60%,transparent 80%);mask:radial-gradient(var(--mr) circle at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.7) 30%,rgba(0,0,0,.25) 60%,transparent 80%);
   animation:breathe 5s ease-in-out infinite}
 .field-glow{opacity:var(--fo);background:
@@ -94,7 +94,7 @@ main,footer,.bar{position:relative;z-index:1}
 .sign h2.fit{font-size:var(--fit)}
 .sign .desc{margin-top:20px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.04em;line-height:1.6;max-width:30ch}
 #pricing .sign .desc{font-family:var(--sans);font-size:17px;letter-spacing:0;color:var(--text);max-width:24ch;line-height:1.4}
-.sign .count{margin-top:6px;color:var(--text);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+.sign .count{margin-top:6px;color:var(--accent);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
 .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:24px;align-content:start}
 
 /* ---- window ---- */
