@@ -192,7 +192,7 @@ footer b{color:var(--text);font-weight:400}
         <div class="chips">
           <label class="chip"><input type="checkbox" name="languages" value="English">English</label>
           <label class="chip"><input type="checkbox" name="languages" value="Vietnamese">Vietnamese</label>
-          <label class="chip"><input type="checkbox" name="languages" value="Other" id="lang-other">Other</label>
+          <label class="chip"><input type="checkbox" name="languages" value="Other" data-other="lang-other-text">Other</label>
         </div>
         <input class="inline-other" type="text" name="languages_other" id="lang-other-text" placeholder="Which language?" aria-label="Other language" hidden>
       </fieldset>
@@ -256,8 +256,9 @@ footer b{color:var(--text);font-weight:400}
           <label class="chip"><input type="checkbox" name="payments" value="Cash on delivery">Cash on delivery</label>
           <label class="chip"><input type="checkbox" name="payments" value="PayPal">PayPal</label>
           <label class="chip"><input type="checkbox" name="payments" value="Momo / VNPay / ZaloPay">Momo / VNPay / ZaloPay</label>
-          <label class="chip"><input type="checkbox" name="payments" value="Other">Other</label>
+          <label class="chip"><input type="checkbox" name="payments" value="Other" data-other="payments-other">Other</label>
         </div>
+        <input class="inline-other" type="text" name="payments_other" id="payments-other" placeholder="Which payment method?" aria-label="Other payment method" hidden>
       </fieldset>
       <fieldset class="fld full"><legend class="lab">Shipping</legend>
         <div class="chips">
@@ -290,8 +291,9 @@ footer b{color:var(--text);font-weight:400}
           <label class="chip"><input type="checkbox" name="pages" value="About">About</label>
           <label class="chip"><input type="checkbox" name="pages" value="Blog / journal">Blog / journal</label>
           <label class="chip"><input type="checkbox" name="pages" value="Contact">Contact</label>
-          <label class="chip"><input type="checkbox" name="pages" value="Other">Other</label>
+          <label class="chip"><input type="checkbox" name="pages" value="Other" data-other="pages-other">Other</label>
         </div>
+        <input class="inline-other" type="text" name="pages_other" id="pages-other" placeholder="Which pages?" aria-label="Other pages" hidden>
       </fieldset>
       <fieldset class="fld full"><legend class="lab q">Scope</legend>
         <div class="chips">
@@ -350,6 +352,7 @@ footer b{color:var(--text);font-weight:400}
           <option>GMT−8 Los Angeles</option>
           <option>Other</option>
         </select>
+        <input class="inline-other" type="text" name="timezone_other" id="timezone-other" placeholder="Your city or UTC offset" aria-label="Other time zone" hidden>
       </label>
       <div class="fld" aria-hidden="true"></div>
       <fieldset class="fld full"><legend class="lab q">Best times for a call</legend>
@@ -408,9 +411,11 @@ footer b{color:var(--text);font-weight:400}
   var d=new Date(),pad=function(n){return(n<10?'0':'')+n};
   document.getElementById('launch-date').min=d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
 
-  // "Other" language reveals a text field
-  var lo=document.getElementById('lang-other'),lt=document.getElementById('lang-other-text');
-  lo.addEventListener('change',function(){lt.hidden=!lo.checked;if(lo.checked)lt.focus();else lt.value=''});
+  // any "Other" option reveals its own text field
+  document.querySelectorAll('[data-other]').forEach(function(box){var t=document.getElementById(box.getAttribute('data-other'));if(!t)return;
+    box.addEventListener('change',function(){t.hidden=!box.checked;if(box.checked)t.focus();else t.value=''})});
+  var tz=document.querySelector('select[name="timezone"]'),tzo=document.getElementById('timezone-other');
+  if(tz&&tzo)tz.addEventListener('change',function(){var on=tz.value==='Other';tzo.hidden=!on;if(on)tzo.focus();else tzo.value=''});
 
   // progress line
   var ticking=false;
