@@ -86,6 +86,13 @@ main,footer,.bar{position:relative;z-index:1}
 .hero .key{margin-top:18px;color:var(--muted);font-size:16px}
 .hero .key b{color:var(--text);font-weight:400}
 
+/* ---- orb: a dotted globe whose links light up and fade ---- */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(24px,4vw,64px)}
+.hero-text{min-width:0}
+.orb{width:clamp(300px,36vw,560px);aspect-ratio:1;position:relative;justify-self:end}
+.orb canvas{width:100%;height:100%;display:block}
+@media (max-width:1023px){.hero .wrap{grid-template-columns:1fr}.orb{display:none}}
+
 /* ---- industry block ---- */
 .block{border-top:1px solid var(--line);padding:clamp(48px,7vw,104px) 0 clamp(56px,8vw,120px);scroll-margin-top:52px}
 .block-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
@@ -253,6 +260,7 @@ footer b{color:var(--text);font-weight:400}
 <main>
 <section class="hero">
   <div class="wrap">
+    <div class="hero-text">
     <p class="kicker mono">Selected work / 6 industries</p>
     <h1>Websites for brands that sell, designed and built end to end.</h1>
     <p class="sub">Every window below is real client work. Some of these sites have been live for years; others are confidential, so only a preview can be shown here, and we appreciate your understanding. Click a window to step in.</p>
@@ -266,6 +274,8 @@ footer b{color:var(--text);font-weight:400}
       <li><a href="#quote"><span>07</span>Contact us</a></li>
     </ul>
     <p class="key mono"><b>Bright</b> pages are animated. Muted pages are static.</p>
+    </div>
+    <div class="orb" aria-hidden="true"><canvas id="orb"></canvas></div>
   </div>
 </section>
 
@@ -625,8 +635,34 @@ footer b{color:var(--text);font-weight:400}
   var live=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('live',e.isIntersecting)})},{rootMargin:'120px 0px'});
   document.querySelectorAll('.win:not(.empty)').forEach(function(w){live.observe(w)});
 
-  // ---- motion ----
   var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // ---- orb: dotted globe, links glow in and out ----
+  (function(){var cv=document.getElementById('orb');if(!cv||!cv.getContext)return;var ctx=cv.getContext('2d'),box=cv.parentElement,W=0,H=0,R=0,dpr=Math.min(2,window.devicePixelRatio||1);
+    var N=420,pts=[],g=Math.PI*(3-Math.sqrt(5));for(var i=0;i<N;i++){var y=1-(i/(N-1))*2,r=Math.sqrt(1-y*y),t=g*i;pts.push({x:Math.cos(t)*r,y:y,z:Math.sin(t)*r})}
+    var links=[],last=0,rot=0,tilt=.35,targetTilt=.35,speed=.0022,targetSpeed=.0022,proj=new Array(N),running=true,still=reduced;
+    function size(){var r=box.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);R=Math.min(W,H)*.42}
+    size();window.addEventListener('resize',size);
+    function spawn(){var tries=0;while(tries++<40){var i=(Math.random()*N)|0,p=pts[i];if(proj[i]&&proj[i].z<-.1)continue;var best=-1,bd=9;for(var j=0;j<N;j++){if(j===i)continue;var q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y,p.z-q.z);if(d>.18&&d<.5&&d<bd){bd=d;best=j}}if(best>-1){links.push({a:i,b:best,t:0,life:2200+Math.random()*1600});return}}}
+    function frame(now){if(!running)return;var dt=Math.min(50,now-(last||now));last=now;
+      rot+=speed;speed+=(targetSpeed-speed)*.04;tilt+=(targetTilt-tilt)*.04;
+      var cr=Math.cos(rot),sr=Math.sin(rot),ct=Math.cos(tilt),st=Math.sin(tilt),cx=W/2,cy=H/2;
+      for(var i=0;i<N;i++){var p=pts[i],x=p.x*cr-p.z*sr,z=p.x*sr+p.z*cr,y=p.y*ct-z*st;z=p.y*st+z*ct;var s=1/(1.9-z*.9);proj[i]={x:cx+x*R*s*1.25,y:cy+y*R*s*1.25,z:z,s:s}}
+      ctx.clearRect(0,0,W,H);
+      // links
+      if(now-(spawn.last||0)>260&&links.length<18){spawn();spawn.last=now}
+      for(var k=links.length-1;k>=0;k--){var L=links[k];L.t+=dt;var u=L.t/L.life;if(u>=1){links.splice(k,1);continue}var al=Math.sin(u*Math.PI);var A=proj[L.a],B=proj[L.b];var depth=Math.min(1,Math.max(0,(A.z+B.z)/2+.6));
+        ctx.strokeStyle='rgba(14,165,233,'+(al*.85*depth).toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(B.x,B.y);ctx.stroke();
+        [A,B].forEach(function(P){ctx.fillStyle='rgba(14,165,233,'+(al*depth).toFixed(3)+')';ctx.beginPath();ctx.arc(P.x,P.y,2.6*P.s,0,6.283);ctx.fill();ctx.fillStyle='rgba(14,165,233,'+(al*depth*.25).toFixed(3)+')';ctx.beginPath();ctx.arc(P.x,P.y,7*P.s,0,6.283);ctx.fill()})}
+      // dots
+      for(var i=0;i<N;i++){var P=proj[i];var a=.1+(P.z+1)/2*.5;ctx.fillStyle='rgba(250,250,250,'+a.toFixed(3)+')';ctx.beginPath();ctx.arc(P.x,P.y,1.1*P.s+.3,0,6.283);ctx.fill()}
+      if(!still)requestAnimationFrame(frame)}
+    // run only while the hero is on screen
+    new IntersectionObserver(function(es){var on=es[0].isIntersecting;if(on&&!running){running=true;last=0;requestAnimationFrame(frame)}else if(!on)running=false},{threshold:.05}).observe(box);
+    requestAnimationFrame(frame);
+    if(!still){window.addEventListener('pointermove',function(e){var nx=e.clientX/window.innerWidth-.5,ny=e.clientY/window.innerHeight-.5;targetSpeed=.0022+nx*.002;targetTilt=.35+ny*.35},{passive:true})}
+  })();
+
+  // ---- motion ----
   if(window.gsap&&!reduced){
     gsap.registerPlugin(ScrollTrigger);
     // smooth scroll
