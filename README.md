@@ -25,7 +25,7 @@ Open http://localhost:5190/ . In the Claude app the `showcase` entry in `.claude
 | `delis/` | Fashion | Home, Collection, Product (animated) · Cart, Checkout (static). Figma `IB0OrN277a6mNFf1v0xQYJ`, copy translated to English |
 | `heat-society/` | Fitness app | English static export of `E:\Freelance\Heat\heat-society-site` (Next.js 15); the source project is untouched |
 | `grand-era/` | Real estate | Copy of github.com/spaceflow-design/grand-era-final with paths fixed and copy translated to English |
-| — | Real estate | ASP Landing: placeholder frame, source not found yet |
+| — | Real estate | ASP Land: external live site (github.com/spaceflow-design/asp-land, published at spaceflow-design.github.io/asp-land), option 1 full site linked |
 | — | Fintech | Vui App: external live site (`vuiapp.vn/en`), sends `X-Frame-Options: SAMEORIGIN` so it opens in a new tab instead of the viewer |
 | — | Interiors | Doric: external live site (`doric.vn`, Vietnamese only) |
 | `_shared/thumbs/` | — | Full-page captures (1440 wide) used in the hub windows |
