@@ -92,8 +92,18 @@ main,footer,.bar{position:relative;z-index:1}
 .sign .idx{color:var(--muted);margin-bottom:12px}
 .sign h2{font-size:clamp(40px,5.4vw,88px);font-weight:300;line-height:1;letter-spacing:-.03em;white-space:nowrap}
 .sign h2.fit{font-size:var(--fit)}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.w>span{display:inline-block;will-change:transform}
+.win{transform-style:preserve-3d}
+.viewer.is-open{animation:viewerIn .45s var(--ease)}
+.viewer.is-open .viewer-stage{animation:stageIn .6s var(--ease)}
+@keyframes viewerIn{from{opacity:0}to{opacity:1}}
+@keyframes stageIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
 .sign .desc{margin-top:20px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.04em;line-height:1.6;max-width:30ch}
-#pricing .sign .desc{font-family:var(--sans);font-size:17px;letter-spacing:0;color:var(--text);max-width:24ch;line-height:1.4}
+#quote .sign .desc{font-family:var(--sans);font-size:17px;letter-spacing:0;color:var(--text);max-width:24ch;line-height:1.4}
 .sign .count{margin-top:6px;color:var(--accent);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
 .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:24px;align-content:start}
 
@@ -161,6 +171,11 @@ main,footer,.bar{position:relative;z-index:1}
 .btn-quote:hover{background:var(--text);color:var(--bg)}
 .bands-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;min-width:0}
 @media (max-width:760px){.scope{grid-template-columns:1fr}.bands{font-size:12px}}
+
+.start-lead{font-size:clamp(17px,1.5vw,21px);line-height:1.5;max-width:40ch;color:var(--text)}
+.start-steps{list-style:none;display:grid;gap:12px;font-size:12px;letter-spacing:.04em;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+.start-steps li{display:flex;gap:14px}
+.start-steps span{color:var(--accent)}
 
 /* ---- footer ---- */
 footer{border-top:1px solid var(--line)}
@@ -230,7 +245,7 @@ footer b{color:var(--text);font-weight:400}
           <li><a href="#interiors"><span>06</span>Interiors<em>1</em></a></li>
         </ul>
       </div>
-      <a class="nav-link" href="#pricing">Pricing</a>
+      <a class="nav-link" href="#quote">Get a quote</a>
     </nav>
   </div>
 </header>
@@ -248,7 +263,7 @@ footer b{color:var(--text);font-weight:400}
       <li><a href="#real-estate"><span>04</span>Real estate</a></li>
       <li><a href="#fintech"><span>05</span>Fintech</a></li>
       <li><a href="#interiors"><span>06</span>Interiors</a></li>
-      <li><a href="#pricing"><span>07</span>Pricing</a></li>
+      <li><a href="#quote"><span>07</span>Get a quote</a></li>
     </ul>
     <p class="key mono"><b>Bright</b> pages are animated. Muted pages are static.</p>
   </div>
@@ -494,41 +509,22 @@ footer b{color:var(--text);font-weight:400}
   </div>
 </section>
 
-<section class="block" id="pricing" aria-labelledby="h-pricing">
+<section class="block" id="quote" aria-labelledby="h-quote">
   <div class="wrap block-grid">
     <div class="sign">
-      <p class="idx mono">07 / Pricing</p>
-      <h2 id="h-pricing">What it costs</h2>
+      <p class="idx mono">07 / Start</p>
+      <h2 id="h-quote">Let's talk about your store.</h2>
       <p class="desc">A store that sells while you sleep. Designed around your customer, built to convert.</p>
-      <p class="count">Pick a scope, slide the size, see your number</p>
+      <p class="count">Reply within one working day</p>
     </div>
     <div class="price">
-      <div class="scope" role="radiogroup" aria-label="Scope">
-        <label><input type="radio" name="scope" value="design" checked><b>Design only</b><small>Research, UX, UI, prototype, developer handoff</small></label>
-        <label><input type="radio" name="scope" value="build"><b>Design + build</b><small>Plus storefront code, CMS, payments, launch</small></label>
-        <label><input type="radio" name="scope" value="seo"><b>Design + build + SEO</b><small>Plus technical SEO and three months of search work</small></label>
-      </div>
-      <div class="scale">
-        <label for="scale">Project size</label>
-        <input id="scale" type="range" min="0" max="100" value="35" aria-describedby="est-note">
-        <div class="scale-ticks"><span>Landing page, one product</span><span>Store, about 50 products</span><span>Custom platform</span></div>
-      </div>
-      <div class="estimate" aria-live="polite">
-        <p class="est-label mono">Your estimate</p>
-        <p class="est"><span id="est-lo">$3,500</span><i>to</i><span id="est-hi">$7,000</span></p>
-        <p class="est-note mono" id="est-note">Design only · a store with about 50 products</p>
-      </div>
-      <div class="bands-wrap" hidden><table class="bands">
-        <thead><tr><th>Who builds it</th><th>Design only</th><th>Design + build</th><th>SEO, monthly</th></tr></thead>
-        <tbody>
-          <tr data-band="vn-template"><td>Vietnam, template studios</td><td>—</td><td>$80 – $300</td><td>—</td></tr>
-          <tr data-band="vn-custom"><td>Vietnam, custom agencies</td><td>$250 – $800</td><td>$270 – $1,900</td><td>—</td></tr>
-          <tr data-band="intl-freelance" class="is-on"><td>International freelancers</td><td>$1,500 – $6,000</td><td>$2,500 – $15,000</td><td>$500 – $1,500</td></tr>
-          <tr data-band="intl-agency"><td>International agencies</td><td>$4,000 – $15,000</td><td>$6,000 – $35,000</td><td>$1,000 – $3,200</td></tr>
-        </tbody>
-      </table></div>
-      <p class="src" hidden>Ranges compiled October 2026 from public rate cards and surveys: Sapo, Mona Media, Tất Thành and CVM for Vietnam (2 – 50 million VND, converted at about 26,000 VND per USD); OuterBox, Project Cost Estimator and SEO provider surveys for international work. Design-only figures are derived from published hourly rates. Vendor numbers, directional only. Spaceflow quotes each project on scope.</p>
-      <a class="btn-quote" href="brief.html" id="quote-link">Ask for a quote →</a>
+      <p class="start-lead">Tell us what you sell, where you sell it and when you want to launch. The brief takes about five minutes, and you get a plan and a precise quote back within one working day.</p>
+      <ul class="start-steps mono">
+        <li><span>01</span>Fill in the project brief</li>
+        <li><span>02</span>We reply with questions, a rough plan and a quote</li>
+        <li><span>03</span>A call to confirm scope, then we start</li>
+      </ul>
+      <a class="btn-quote" href="brief.html" id="quote-link">Start the project brief →</a>
     </div>
   </div>
 </section>
@@ -558,6 +554,8 @@ footer b{color:var(--text);font-weight:400}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
 <script>
 (function(){
   document.documentElement.classList.add('js');
@@ -623,30 +621,48 @@ footer b{color:var(--text);font-weight:400}
   var quietSel='.price,.caption,.sign,.hero .wrap,.bar,.viewer,.win';
   document.addEventListener('pointerover',function(e){field.classList.toggle('is-quiet',!!(e.target.closest&&e.target.closest(quietSel)))});
 
-  // pricing calculator
-  var scale=document.getElementById('scale'),estLo=document.getElementById('est-lo'),estHi=document.getElementById('est-hi'),estNote=document.getElementById('est-note');
-  var scopeName={design:'Design only',build:'Design + build',seo:'Design + build + SEO'};
-  function lerp(a,b,t){return a+(b-a)*t}
-  function money(n){n=Math.round(n/100)*100;return '$'+n.toLocaleString('en-US')}
-  function calc(){
-    var t=Math.pow(scale.value/100,1.35),s=document.querySelector('input[name="scope"]:checked').value;
-    // Design + build starts at $2,500; the other scopes keep the same proportions
-    var lo=lerp(1300,10000,t),hi=lerp(2700,20000,t);
-    if(s!=='design'){lo=lerp(2500,25000,t);hi=lerp(5000,50000,t)}
-    if(s==='seo'){lo+=lerp(1000,7500,t);hi+=lerp(2000,15000,t)}
-    estLo.textContent=money(lo);estHi.textContent=money(hi);
-    var size=scale.value<34?'a landing page or a one-product shop':scale.value<67?'a store with about 50 products':'a custom platform with integrations';
-    estNote.textContent=scopeName[s]+' · '+size+(s==='seo'?' · SEO counted for three months':'');
-    document.querySelectorAll('.bands tr[data-band]').forEach(function(r){r.classList.toggle('is-on',r.dataset.band===(t<.5?'intl-freelance':'intl-agency'))});
-  }
-  scale.addEventListener('input',calc);
-  document.querySelectorAll('input[name="scope"]').forEach(function(i){i.addEventListener('change',calc)});
-  calc();
+  // walk only while a window is on screen
+  var live=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('live',e.isIntersecting)})},{rootMargin:'120px 0px'});
+  document.querySelectorAll('.win:not(.empty)').forEach(function(w){live.observe(w)});
 
-  // the quote button carries the visitor's selection into the brief
-  var quoteLink=document.getElementById('quote-link');
-  function syncQuote(){var sc=document.querySelector('input[name="scope"]:checked').value;quoteLink.href='brief.html?scope='+sc+'&size='+scale.value+'&est='+encodeURIComponent(estLo.textContent+' to '+estHi.textContent)+'&note='+encodeURIComponent(estNote.textContent)}
-  scale.addEventListener('input',syncQuote);document.querySelectorAll('input[name="scope"]').forEach(function(i){i.addEventListener('change',syncQuote)});syncQuote();
+  // ---- motion ----
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(window.gsap&&!reduced){
+    gsap.registerPlugin(ScrollTrigger);
+    // smooth scroll
+    if(window.Lenis){var lenis=new Lenis({lerp:.11,wheelMultiplier:1,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1&&document.querySelector(id)){e.preventDefault();lenis.scrollTo(id,{offset:-52,duration:1.1});history.replaceState(null,'',id)}})})}
+    // split headings into words
+    function words(el){var t=el.textContent.trim().split(/\s+/);el.setAttribute('aria-label',t.join(' '));el.innerHTML=t.map(function(w){return '<span class="w" aria-hidden="true"><span>'+w+'</span></span>'}).join(' ');return el.querySelectorAll('.w > span')}
+    var heroWords=words(document.querySelector('.hero h1'));
+    gsap.set(heroWords,{yPercent:110});gsap.set('.hero .kicker, .hero .sub, .hero .index, .hero .key',{y:18,opacity:0});
+    gsap.timeline({delay:.15}).to('.hero .kicker',{y:0,opacity:1,duration:.7,ease:'power3.out'})
+      .to(heroWords,{yPercent:0,duration:1,stagger:.06,ease:'power4.out'},'-=.4')
+      .to('.hero .sub, .hero .index, .hero .key',{y:0,opacity:1,duration:.8,stagger:.1,ease:'power3.out'},'-=.6');
+    // each block: signage words, then the windows rise in
+    document.querySelectorAll('.block').forEach(function(block){
+      var h=block.querySelector('.sign h2'),ws=h?words(h):[],meta=block.querySelectorAll('.sign .idx, .sign .desc, .sign .count'),items=block.querySelectorAll('.proj, .price > *');
+      if(ws.length)gsap.set(ws,{yPercent:110});gsap.set(meta,{y:14,opacity:0});gsap.set(items,{y:36,opacity:0});
+      ScrollTrigger.create({trigger:block,start:'top 72%',once:true,onEnter:function(){
+        gsap.timeline().to(ws,{yPercent:0,duration:.9,stagger:.07,ease:'power4.out'})
+          .to(meta,{y:0,opacity:1,duration:.6,stagger:.08,ease:'power3.out'},'-=.6')
+          .to(items,{y:0,opacity:1,duration:.9,stagger:.09,ease:'power3.out'},'-=.7');
+      }});
+      if(h)fitSigns();
+    });
+    // windows tilt toward the pointer
+    if(matchMedia('(hover:hover)').matches){document.querySelectorAll('.win:not(.empty)').forEach(function(w){
+      var rx=gsap.quickTo(w,'rotationX',{duration:.6,ease:'power3'}),ry=gsap.quickTo(w,'rotationY',{duration:.6,ease:'power3'});
+      gsap.set(w,{transformPerspective:1200,transformOrigin:'50% 50%'});
+      w.addEventListener('pointermove',function(e){var r=w.getBoundingClientRect();rx(-((e.clientY-r.top)/r.height-.5)*5);ry(((e.clientX-r.left)/r.width-.5)*6)});
+      w.addEventListener('pointerleave',function(){rx(0);ry(0)});
+    })}
+    // signage drifts slower than the windows
+    document.querySelectorAll('.block-grid').forEach(function(g){var s=g.querySelector('.sign');if(s&&matchMedia('(min-width:760px)').matches)gsap.to(s,{y:-24,ease:'none',scrollTrigger:{trigger:g,start:'top bottom',end:'bottom top',scrub:true}})});
+    // safety: a throttled tab (rAF paused) must never leave the page blank
+    setTimeout(function(){gsap.set('.hero .kicker, .hero .sub, .hero .index, .hero .key, .sign .idx, .sign .desc, .sign .count, .proj, .price > *, .w > span',{clearProps:'opacity,transform'})},4000);
+    window.addEventListener('load',function(){ScrollTrigger.refresh()});
+  }
 })();
 </script>
 </body>
